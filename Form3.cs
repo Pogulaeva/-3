@@ -10,23 +10,23 @@ using System.Windows.Forms;
 
 namespace IS_FISU
 {
-    public partial class AccountChooseWindow : Form
+    public partial class AdminWindow : Form
     {
-        public AccountChooseWindow()
+        public AdminWindow()
         {
             InitializeComponent();
         }
 
-        private void ClientButton_Click(object sender, EventArgs e)
+        private void ToStuffListButton_Click(object sender, EventArgs e)
         {
-            var myForm = new ClientWindow();
+            var myForm = new StuffStorageWindow();
             myForm.Show();
         }
 
-        private void AdminButton_Click(object sender, EventArgs e)
+        private void ToOrderListButton_Click(object sender, EventArgs e)
         {
-            var myForm = new AdminWindow();
-            myForm.Show();
+            var myForm = new OrderListWindow();
+            myForm.Show(); 
         }
     }
 }
