@@ -37,7 +37,7 @@ namespace IS_FISU
             // CanceledOrdersText
             // 
             this.CanceledOrdersText.AutoSize = true;
-            this.CanceledOrdersText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CanceledOrdersText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CanceledOrdersText.Location = new System.Drawing.Point(12, 38);
             this.CanceledOrdersText.Name = "CanceledOrdersText";
             this.CanceledOrdersText.Size = new System.Drawing.Size(198, 48);
@@ -47,7 +47,7 @@ namespace IS_FISU
             // ActiveOrdersText
             // 
             this.ActiveOrdersText.AutoSize = true;
-            this.ActiveOrdersText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ActiveOrdersText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ActiveOrdersText.Location = new System.Drawing.Point(305, 38);
             this.ActiveOrdersText.Name = "ActiveOrdersText";
             this.ActiveOrdersText.Size = new System.Drawing.Size(171, 48);
@@ -57,7 +57,7 @@ namespace IS_FISU
             // ClosedOrdersText
             // 
             this.ClosedOrdersText.AutoSize = true;
-            this.ClosedOrdersText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ClosedOrdersText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ClosedOrdersText.Location = new System.Drawing.Point(563, 38);
             this.ClosedOrdersText.Name = "ClosedOrdersText";
             this.ClosedOrdersText.Size = new System.Drawing.Size(209, 48);
