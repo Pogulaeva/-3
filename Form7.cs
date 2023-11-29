@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace IS_FISU
 {
-    public partial class ClientWindow : Form
+    public partial class ClientOrdersWindow : Form
     {
-        public ClientWindow()
+        public ClientOrdersWindow()
         {
             InitializeComponent();
-        }
-
-        private void ClientOrderListButton_Click(object sender, EventArgs e)
-        {
-            var myForm = new ClientOrdersWindow();
-            myForm.Show();
         }
     }
 }

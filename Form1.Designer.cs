@@ -36,7 +36,7 @@ namespace IS_FISU
             // 
             // ClientButton
             // 
-            this.ClientButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.ClientButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(194)))), ((int)(((byte)(250)))));
             this.ClientButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ClientButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ClientButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
