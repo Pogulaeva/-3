@@ -10,7 +10,7 @@ namespace IS_FISU
     class DataBase
     {
 
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-0MMNCCD\SQLEXPRESS; Initial Catalog=IS_FISU; Integrated Security=True");
+        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-0MMNCCD\SQLEXPRESS; Initial Catalog=IS_FISU; Integrated Security = True");
 
         public void openConnection()
         {

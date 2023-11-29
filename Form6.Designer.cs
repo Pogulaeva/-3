@@ -39,8 +39,8 @@ namespace IS_FISU
             this.AmountInput = new System.Windows.Forms.NumericUpDown();
             this.DateInput = new System.Windows.Forms.DateTimePicker();
             this.CancelButton = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.CurrencyText = new System.Windows.Forms.Label();
+            this.UnitText = new System.Windows.Forms.Label();
             this.AddProductButton = new System.Windows.Forms.Button();
             this.PriceStandardInfo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PriceInput)).BeginInit();
@@ -171,25 +171,25 @@ namespace IS_FISU
             this.CancelButton.Text = "Отмена";
             this.CancelButton.UseVisualStyleBackColor = false;
             // 
-            // label6
+            // CurrencyText
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(393, 157);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(18, 20);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "₽";
+            this.CurrencyText.AutoSize = true;
+            this.CurrencyText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CurrencyText.Location = new System.Drawing.Point(393, 157);
+            this.CurrencyText.Name = "CurrencyText";
+            this.CurrencyText.Size = new System.Drawing.Size(18, 20);
+            this.CurrencyText.TabIndex = 11;
+            this.CurrencyText.Text = "₽";
             // 
-            // label7
+            // UnitText
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(393, 220);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 20);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "шт.";
+            this.UnitText.AutoSize = true;
+            this.UnitText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.UnitText.Location = new System.Drawing.Point(393, 220);
+            this.UnitText.Name = "UnitText";
+            this.UnitText.Size = new System.Drawing.Size(35, 20);
+            this.UnitText.TabIndex = 12;
+            this.UnitText.Text = "шт.";
             // 
             // AddProductButton
             // 
@@ -202,6 +202,7 @@ namespace IS_FISU
             this.AddProductButton.Text = "Добавить";
             this.AddProductButton.UseVisualStyleBackColor = false;
             this.AddProductButton.Visible = false;
+            this.AddProductButton.Click += new System.EventHandler(this.AddProductButton_Click);
             // 
             // PriceStandardInfo
             // 
@@ -220,8 +221,8 @@ namespace IS_FISU
             this.ClientSize = new System.Drawing.Size(453, 450);
             this.Controls.Add(this.PriceStandardInfo);
             this.Controls.Add(this.AddProductButton);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.UnitText);
+            this.Controls.Add(this.CurrencyText);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.DateInput);
             this.Controls.Add(this.AmountInput);
@@ -253,8 +254,8 @@ namespace IS_FISU
         private System.Windows.Forms.NumericUpDown AmountInput;
         private System.Windows.Forms.DateTimePicker DateInput;
         private System.Windows.Forms.Button CancelButton;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label CurrencyText;
+        private System.Windows.Forms.Label UnitText;
         private System.Windows.Forms.Button AddProductButton;
         private System.Windows.Forms.Label PriceStandardInfo;
     }

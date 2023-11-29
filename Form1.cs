@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace IS_FISU
 {
     public partial class AccountChooseWindow : Form
     {
+
+        DataBase dataBase = new DataBase();
+
         public AccountChooseWindow()
         {
             InitializeComponent();

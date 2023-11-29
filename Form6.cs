@@ -31,5 +31,32 @@ namespace IS_FISU
            var tooltip = new ToolTip(); //Создание подсказки, в которой поясняется правильность записи цены в поле
            tooltip.SetToolTip(PriceStandardInfo, "Писать в поле цены товара нужно только цифры, ничего более"); //Вывод текста в подсказке 
         }
+
+        private void AddProductButton_Click(object sender, EventArgs e)
+        {
+            DataBase dataBase = new DataBase();
+
+            var name = NameInputBox.Text;
+            var price = PriceInput.Value;
+            var amount = AmountInput.Value;
+            var supplydate = DateInput.Value;
+
+            string AddingProduct = $"insert into Products(name_product, price_product, amount_product, supply_date) values ('{name}', '{price}', '{amount}', '{supplydate}')";
+
+            SqlCommand command = new SqlCommand(AddingProduct, dataBase.getConnection());
+
+            dataBase.openConnection();
+
+            if (command.ExecuteNonQuery() == 1)
+            {
+                MessageBox.Show("Товар успешно добавлен!", "");
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Товар не добавлен", "");
+            }
+            dataBase.closeConnection();
+        }
     }
 }
