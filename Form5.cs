@@ -12,6 +12,9 @@ namespace IS_FISU
 {
     public partial class OrderListWindow : Form
     {
+
+        DataBase dataBase = new DataBase();
+
         public OrderListWindow()
         {
             InitializeComponent();

@@ -12,6 +12,9 @@ namespace IS_FISU
 {
     public partial class ClientOrdersWindow : Form
     {
+
+        DataBase dataBase = new DataBase();
+
         public ClientOrdersWindow()
         {
             InitializeComponent();

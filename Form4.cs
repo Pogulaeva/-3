@@ -12,6 +12,9 @@ namespace IS_FISU
 {
     public partial class StuffStorageWindow : Form
     {
+
+        DataBase dataBase = new DataBase();
+
         public StuffStorageWindow()
         {
             InitializeComponent();

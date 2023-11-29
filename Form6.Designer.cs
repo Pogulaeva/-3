@@ -41,6 +41,8 @@ namespace IS_FISU
             this.CancelButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.AddProductButton = new System.Windows.Forms.Button();
+            this.PriceStandardInfo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PriceInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountInput)).BeginInit();
             this.SuspendLayout();
@@ -103,6 +105,7 @@ namespace IS_FISU
             this.NameInputBox.Size = new System.Drawing.Size(248, 50);
             this.NameInputBox.TabIndex = 5;
             this.NameInputBox.Text = "";
+            this.NameInputBox.TextChanged += new System.EventHandler(this.NameInputBox_TextChanged);
             // 
             // PriceInput
             // 
@@ -188,11 +191,35 @@ namespace IS_FISU
             this.label7.TabIndex = 12;
             this.label7.Text = "шт.";
             // 
+            // AddProductButton
+            // 
+            this.AddProductButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
+            this.AddProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddProductButton.Location = new System.Drawing.Point(21, 380);
+            this.AddProductButton.Name = "AddProductButton";
+            this.AddProductButton.Size = new System.Drawing.Size(127, 57);
+            this.AddProductButton.TabIndex = 13;
+            this.AddProductButton.Text = "Добавить";
+            this.AddProductButton.UseVisualStyleBackColor = false;
+            this.AddProductButton.Visible = false;
+            // 
+            // PriceStandardInfo
+            // 
+            this.PriceStandardInfo.AutoSize = true;
+            this.PriceStandardInfo.Location = new System.Drawing.Point(142, 149);
+            this.PriceStandardInfo.Name = "PriceStandardInfo";
+            this.PriceStandardInfo.Size = new System.Drawing.Size(21, 13);
+            this.PriceStandardInfo.TabIndex = 14;
+            this.PriceStandardInfo.Text = "[ i ]";
+            this.PriceStandardInfo.Click += new System.EventHandler(this.PriceStandardInfo_Click);
+            // 
             // NewProductWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(453, 450);
+            this.Controls.Add(this.PriceStandardInfo);
+            this.Controls.Add(this.AddProductButton);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.CancelButton);
@@ -228,5 +255,7 @@ namespace IS_FISU
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button AddProductButton;
+        private System.Windows.Forms.Label PriceStandardInfo;
     }
 }
