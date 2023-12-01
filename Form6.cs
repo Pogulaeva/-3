@@ -52,12 +52,29 @@ namespace IS_FISU
             {
                 MessageBox.Show("Товар успешно добавлен!", "");
                 this.Hide();
+                var myForm = new StuffStorageWindow();
+                myForm.Show();
             }
             else
             {
                 MessageBox.Show("Товар не добавлен", "");
             }
             dataBase.closeConnection();
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            if (NameInputBox.Text.Length > 0)
+            {
+                if (MessageBox.Show("Вы действительно хотите закрыть окно добавления товара? (Все записи будут сброшены)", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    this.Hide();
+                }
+            }
+            else
+            {
+                this.Hide();
+            }
         }
     }
 }

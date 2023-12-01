@@ -23,12 +23,14 @@ namespace IS_FISU
 
         private void ClientButton_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var myForm = new ClientWindow();
             myForm.Show();
         }
 
         private void AdminButton_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var myForm = new AdminWindow();
             myForm.Show();
         }

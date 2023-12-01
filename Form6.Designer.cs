@@ -172,6 +172,7 @@ namespace IS_FISU
             this.CancelButton.TabIndex = 10;
             this.CancelButton.Text = "Отмена";
             this.CancelButton.UseVisualStyleBackColor = false;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // CurrencyText
             // 

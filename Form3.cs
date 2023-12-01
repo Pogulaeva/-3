@@ -29,5 +29,12 @@ namespace IS_FISU
             var myForm = new OrderListWindow();
             myForm.Show(); 
         }
+
+        private void ChangeAccButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var myForm = new AccountChooseWindow();
+            myForm.Show();
+        }
     }
 }
