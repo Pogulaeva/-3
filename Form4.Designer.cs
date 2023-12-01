@@ -29,7 +29,31 @@ namespace IS_FISU
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.AddNewProductButton = new System.Windows.Forms.Button();
+            this.DataBaseAdmin = new System.Windows.Forms.DataGridView();
+            this.AddProductButton = new System.Windows.Forms.Button();
+            this.CancelButton = new System.Windows.Forms.Button();
+            this.PriceStandardInfo = new System.Windows.Forms.Label();
+            this.UnitText = new System.Windows.Forms.Label();
+            this.CurrencyText = new System.Windows.Forms.Label();
+            this.DateInput = new System.Windows.Forms.DateTimePicker();
+            this.AmountInput = new System.Windows.Forms.NumericUpDown();
+            this.PriceInput = new System.Windows.Forms.NumericUpDown();
+            this.NameInputBox = new System.Windows.Forms.RichTextBox();
+            this.ProductDateText = new System.Windows.Forms.Label();
+            this.ProductAmountText = new System.Windows.Forms.Label();
+            this.ProductPriceText = new System.Windows.Forms.Label();
+            this.ProductNameText = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supply_data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.DataBaseAdmin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AmountInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PriceInput)).BeginInit();
             this.SuspendLayout();
             // 
             // AddNewProductButton
@@ -37,7 +61,7 @@ namespace IS_FISU
             this.AddNewProductButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
             this.AddNewProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddNewProductButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddNewProductButton.Location = new System.Drawing.Point(68, 12);
+            this.AddNewProductButton.Location = new System.Drawing.Point(271, 25);
             this.AddNewProductButton.Name = "AddNewProductButton";
             this.AddNewProductButton.Size = new System.Drawing.Size(650, 47);
             this.AddNewProductButton.TabIndex = 0;
@@ -45,21 +69,265 @@ namespace IS_FISU
             this.AddNewProductButton.UseVisualStyleBackColor = false;
             this.AddNewProductButton.Click += new System.EventHandler(this.AddNewProductButton_Click);
             // 
+            // DataBaseAdmin
+            // 
+            this.DataBaseAdmin.AllowUserToAddRows = false;
+            this.DataBaseAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataBaseAdmin.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.name_product,
+            this.price_product,
+            this.amount_product,
+            this.supply_data});
+            this.DataBaseAdmin.Location = new System.Drawing.Point(12, 103);
+            this.DataBaseAdmin.Name = "DataBaseAdmin";
+            this.DataBaseAdmin.Size = new System.Drawing.Size(683, 324);
+            this.DataBaseAdmin.TabIndex = 1;
+            // 
+            // AddProductButton
+            // 
+            this.AddProductButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
+            this.AddProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddProductButton.Location = new System.Drawing.Point(734, 370);
+            this.AddProductButton.Name = "AddProductButton";
+            this.AddProductButton.Size = new System.Drawing.Size(127, 57);
+            this.AddProductButton.TabIndex = 41;
+            this.AddProductButton.Text = "Сохранить изменения";
+            this.AddProductButton.UseVisualStyleBackColor = false;
+            this.AddProductButton.Visible = false;
+            // 
+            // CancelButton
+            // 
+            this.CancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
+            this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelButton.Location = new System.Drawing.Point(989, 369);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(140, 58);
+            this.CancelButton.TabIndex = 40;
+            this.CancelButton.Text = "Отмена";
+            this.CancelButton.UseVisualStyleBackColor = false;
+            // 
+            // PriceStandardInfo
+            // 
+            this.PriceStandardInfo.AutoSize = true;
+            this.PriceStandardInfo.Location = new System.Drawing.Point(843, 228);
+            this.PriceStandardInfo.Name = "PriceStandardInfo";
+            this.PriceStandardInfo.Size = new System.Drawing.Size(21, 13);
+            this.PriceStandardInfo.TabIndex = 39;
+            this.PriceStandardInfo.Text = "[ i ]";
+            // 
+            // UnitText
+            // 
+            this.UnitText.AutoSize = true;
+            this.UnitText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.UnitText.Location = new System.Drawing.Point(1094, 274);
+            this.UnitText.Name = "UnitText";
+            this.UnitText.Size = new System.Drawing.Size(35, 20);
+            this.UnitText.TabIndex = 38;
+            this.UnitText.Text = "шт.";
+            // 
+            // CurrencyText
+            // 
+            this.CurrencyText.AutoSize = true;
+            this.CurrencyText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CurrencyText.Location = new System.Drawing.Point(1094, 231);
+            this.CurrencyText.Name = "CurrencyText";
+            this.CurrencyText.Size = new System.Drawing.Size(18, 20);
+            this.CurrencyText.TabIndex = 37;
+            this.CurrencyText.Text = "₽";
+            // 
+            // DateInput
+            // 
+            this.DateInput.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DateInput.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.DateInput.Location = new System.Drawing.Point(897, 312);
+            this.DateInput.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            this.DateInput.Name = "DateInput";
+            this.DateInput.Size = new System.Drawing.Size(204, 20);
+            this.DateInput.TabIndex = 36;
+            this.DateInput.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            // 
+            // AmountInput
+            // 
+            this.AmountInput.Location = new System.Drawing.Point(870, 274);
+            this.AmountInput.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.AmountInput.Name = "AmountInput";
+            this.AmountInput.Size = new System.Drawing.Size(218, 20);
+            this.AmountInput.TabIndex = 35;
+            // 
+            // PriceInput
+            // 
+            this.PriceInput.Location = new System.Drawing.Point(870, 231);
+            this.PriceInput.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.PriceInput.Name = "PriceInput";
+            this.PriceInput.Size = new System.Drawing.Size(218, 20);
+            this.PriceInput.TabIndex = 34;
+            // 
+            // NameInputBox
+            // 
+            this.NameInputBox.Location = new System.Drawing.Point(846, 165);
+            this.NameInputBox.MaxLength = 80;
+            this.NameInputBox.Name = "NameInputBox";
+            this.NameInputBox.Size = new System.Drawing.Size(248, 50);
+            this.NameInputBox.TabIndex = 33;
+            this.NameInputBox.Text = "";
+            // 
+            // ProductDateText
+            // 
+            this.ProductDateText.AutoSize = true;
+            this.ProductDateText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ProductDateText.Location = new System.Drawing.Point(738, 312);
+            this.ProductDateText.Name = "ProductDateText";
+            this.ProductDateText.Size = new System.Drawing.Size(153, 20);
+            this.ProductDateText.TabIndex = 32;
+            this.ProductDateText.Text = "Дата поступления:";
+            // 
+            // ProductAmountText
+            // 
+            this.ProductAmountText.AutoSize = true;
+            this.ProductAmountText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ProductAmountText.Location = new System.Drawing.Point(738, 274);
+            this.ProductAmountText.Name = "ProductAmountText";
+            this.ProductAmountText.Size = new System.Drawing.Size(123, 20);
+            this.ProductAmountText.TabIndex = 31;
+            this.ProductAmountText.Text = "Кол-во товара:";
+            // 
+            // ProductPriceText
+            // 
+            this.ProductPriceText.AutoSize = true;
+            this.ProductPriceText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ProductPriceText.Location = new System.Drawing.Point(738, 228);
+            this.ProductPriceText.Name = "ProductPriceText";
+            this.ProductPriceText.Size = new System.Drawing.Size(110, 20);
+            this.ProductPriceText.TabIndex = 30;
+            this.ProductPriceText.Text = "Цена товара:";
+            // 
+            // ProductNameText
+            // 
+            this.ProductNameText.AutoSize = true;
+            this.ProductNameText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ProductNameText.Location = new System.Drawing.Point(738, 165);
+            this.ProductNameText.Name = "ProductNameText";
+            this.ProductNameText.Size = new System.Drawing.Size(102, 20);
+            this.ProductNameText.TabIndex = 29;
+            this.ProductNameText.Text = "Имя товара:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(737, 103);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(372, 31);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Изменение данных о товаре";
+            // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 80;
+            // 
+            // name_product
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(196)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.name_product.DefaultCellStyle = dataGridViewCellStyle1;
+            this.name_product.HeaderText = "Наименование товара";
+            this.name_product.MinimumWidth = 15;
+            this.name_product.Name = "name_product";
+            this.name_product.ReadOnly = true;
+            this.name_product.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.name_product.Width = 200;
+            // 
+            // price_product
+            // 
+            this.price_product.HeaderText = "Цена товара";
+            this.price_product.Name = "price_product";
+            this.price_product.ReadOnly = true;
+            this.price_product.Width = 120;
+            // 
+            // amount_product
+            // 
+            this.amount_product.HeaderText = "Кол-во товара";
+            this.amount_product.Name = "amount_product";
+            this.amount_product.ReadOnly = true;
+            this.amount_product.Width = 120;
+            // 
+            // supply_data
+            // 
+            this.supply_data.HeaderText = "Дата поступления";
+            this.supply_data.Name = "supply_data";
+            this.supply_data.ReadOnly = true;
+            this.supply_data.Width = 120;
+            // 
             // StuffStorageWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1146, 456);
+            this.Controls.Add(this.AddProductButton);
+            this.Controls.Add(this.CancelButton);
+            this.Controls.Add(this.PriceStandardInfo);
+            this.Controls.Add(this.UnitText);
+            this.Controls.Add(this.CurrencyText);
+            this.Controls.Add(this.DateInput);
+            this.Controls.Add(this.AmountInput);
+            this.Controls.Add(this.PriceInput);
+            this.Controls.Add(this.NameInputBox);
+            this.Controls.Add(this.ProductDateText);
+            this.Controls.Add(this.ProductAmountText);
+            this.Controls.Add(this.ProductPriceText);
+            this.Controls.Add(this.ProductNameText);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.DataBaseAdmin);
             this.Controls.Add(this.AddNewProductButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "StuffStorageWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Система учёта продаж интернет-магазина";
+            ((System.ComponentModel.ISupportInitialize)(this.DataBaseAdmin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AmountInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PriceInput)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button AddNewProductButton;
+        private System.Windows.Forms.DataGridView DataBaseAdmin;
+        private System.Windows.Forms.Button AddProductButton;
+        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Label PriceStandardInfo;
+        private System.Windows.Forms.Label UnitText;
+        private System.Windows.Forms.Label CurrencyText;
+        private System.Windows.Forms.DateTimePicker DateInput;
+        private System.Windows.Forms.NumericUpDown AmountInput;
+        private System.Windows.Forms.NumericUpDown PriceInput;
+        private System.Windows.Forms.RichTextBox NameInputBox;
+        private System.Windows.Forms.Label ProductDateText;
+        private System.Windows.Forms.Label ProductAmountText;
+        private System.Windows.Forms.Label ProductPriceText;
+        private System.Windows.Forms.Label ProductNameText;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name_product;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_product;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amount_product;
+        private System.Windows.Forms.DataGridViewTextBoxColumn supply_data;
     }
 }

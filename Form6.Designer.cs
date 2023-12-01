@@ -153,12 +153,14 @@ namespace IS_FISU
             // 
             // DateInput
             // 
-            this.DateInput.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DateInput.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DateInput.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.DateInput.Location = new System.Drawing.Point(214, 282);
             this.DateInput.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.DateInput.Name = "DateInput";
             this.DateInput.Size = new System.Drawing.Size(204, 20);
             this.DateInput.TabIndex = 9;
+            this.DateInput.Value = new System.DateTime(2023, 12, 1, 0, 0, 0, 0);
             // 
             // CancelButton
             // 
@@ -233,7 +235,9 @@ namespace IS_FISU
             this.Controls.Add(this.ProductPriceText);
             this.Controls.Add(this.ProductNameText);
             this.Controls.Add(this.CreateNewProductText);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "NewProductWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Система учёта продаж интернет-магазина";
             ((System.ComponentModel.ISupportInitialize)(this.PriceInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountInput)).EndInit();

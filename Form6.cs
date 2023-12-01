@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace IS_FISU
 {
@@ -34,16 +34,17 @@ namespace IS_FISU
 
         private void AddProductButton_Click(object sender, EventArgs e)
         {
+
             DataBase dataBase = new DataBase();
 
             var name = NameInputBox.Text;
             var price = PriceInput.Value;
             var amount = AmountInput.Value;
-            var supplydate = DateInput.Value;
+            var supplydate = DateInput.Text;
 
             string AddingProduct = $"insert into Products(name_product, price_product, amount_product, supply_date) values ('{name}', '{price}', '{amount}', '{supplydate}')";
 
-            SqlCommand command = new SqlCommand(AddingProduct, dataBase.getConnection());
+            MySqlCommand command = new MySqlCommand(AddingProduct, dataBase.getConnection());
 
             dataBase.openConnection();
 

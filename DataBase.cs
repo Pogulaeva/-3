@@ -3,34 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace IS_FISU
 {
     class DataBase
     {
 
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-0MMNCCD\SQLEXPRESS; Initial Catalog=IS_FISU; Integrated Security = True");
+        MySqlConnection connection = new MySqlConnection("server=localhost; port=3306; username=root; password=root; database=IS_FISU");
 
         public void openConnection()
         {
-            if(sqlConnection.State == System.Data.ConnectionState.Closed)
+            if(connection.State == System.Data.ConnectionState.Closed)
             {
-                sqlConnection.Open();
+                connection.Open();
             }
         }
 
         public void closeConnection()
         {
-            if (sqlConnection.State == System.Data.ConnectionState.Open)
+            if (connection.State == System.Data.ConnectionState.Open)
             {
-                sqlConnection.Close();
+                connection.Close();
             }
         }
 
-        public SqlConnection getConnection()
+        public MySqlConnection getConnection()
         {
-            return sqlConnection;
+            return connection;
         }
     }
 }

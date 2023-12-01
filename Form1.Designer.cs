@@ -80,8 +80,10 @@ namespace IS_FISU
             this.Controls.Add(this.ChooseAccountText);
             this.Controls.Add(this.AdminButton);
             this.Controls.Add(this.ClientButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "AccountChooseWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Система учёта продаж интернет-магазина";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -72,7 +72,9 @@ namespace IS_FISU
             this.Controls.Add(this.ClosedOrdersText);
             this.Controls.Add(this.ActiveOrdersText);
             this.Controls.Add(this.CanceledOrdersText);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "ClientOrdersWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Система учёта продаж интернет-магазина";
             this.ResumeLayout(false);
             this.PerformLayout();
