@@ -15,11 +15,16 @@ namespace IS_FISU
     {
 
         DataBase dataBase = new DataBase();
+        private List<Control> originalControls = new List<Control>();
 
         public ClientWindow()
         {
             InitializeComponent();
             PopulateCheckListBoxes();
+            foreach (Control control in Controls)
+            {
+                originalControls.Add(control);
+            }
         }
 
         private void ClientOrderListButton_Click(object sender, EventArgs e)
@@ -100,7 +105,70 @@ namespace IS_FISU
 
         private void CreateOrderButton_Click(object sender, EventArgs e)
         {
+            List<string> selectedItems = new List<string>();
 
+            // Собираем выбранные элементы из CheckedListBox
+            foreach (Control control in Controls)
+            {
+                if (control is CheckedListBox checkListBox)
+                {
+                    foreach (var item in checkListBox.CheckedItems)
+                    {
+                        selectedItems.Add(item.ToString());
+                    }
+                }
+            }
+
+            // Скрываем все элементы на форме
+            foreach (Control control in Controls)
+            {
+                control.Visible = false;
+            }
+
+            // Создаем Label и NumericUpDown для каждого выбранного элемента
+            int posY = 10;
+            foreach (var selectedItem in selectedItems)
+            {
+                Label label = new Label();
+                label.Text = selectedItem;
+                label.Location = new System.Drawing.Point(10, posY);
+                Controls.Add(label);
+
+                NumericUpDown numericUpDown = new NumericUpDown();
+                numericUpDown.Location = new System.Drawing.Point(150, posY);
+                Controls.Add(numericUpDown);
+
+                posY += 30; // Инкрементируем позицию для следующего Label и NumericUpDown
+            }
+
+            CancelButton.Visible = true;
+            var placeOrderButton = new Button();
+            placeOrderButton.Text = "Заказать";
+            placeOrderButton.Location = new System.Drawing.Point(150, posY + 10);
+            placeOrderButton.Visible = false; // По умолчанию кнопка "Заказать" скрыта
+            placeOrderButton.Click += PlaceOrderButton_Click;
+            Controls.Add(placeOrderButton);
+        }
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            // Обработчик события для кнопки "Отмена"
+            RestoreOriginalControls();
+
+        }
+
+        private void PlaceOrderButton_Click(object sender, EventArgs e)
+        {
+            // Обработчик события для кнопки "Заказать"
+            RestoreOriginalControls();
+        }
+        private void RestoreOriginalControls()
+        {
+            // Восстанавливаем изначальные элементы формы
+            foreach (Control control in originalControls)
+            {
+                control.Visible = true;
+                CancelButton.Visible = false;
+            }
         }
     }
 }

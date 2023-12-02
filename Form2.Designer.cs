@@ -33,6 +33,7 @@ namespace IS_FISU
             this.ClientOrderListButton = new System.Windows.Forms.Button();
             this.ChangeAccButton = new System.Windows.Forms.Button();
             this.CreateOrderButton = new System.Windows.Forms.Button();
+            this.CancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ProductsListText
@@ -86,12 +87,27 @@ namespace IS_FISU
             this.CreateOrderButton.Visible = false;
             this.CreateOrderButton.Click += new System.EventHandler(this.CreateOrderButton_Click);
             // 
+            // CancelButton
+            // 
+            this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(194)))), ((int)(((byte)(237)))));
+            this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelButton.Location = new System.Drawing.Point(19, 389);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(101, 43);
+            this.CancelButton.TabIndex = 4;
+            this.CancelButton.Text = "Отмена";
+            this.CancelButton.UseVisualStyleBackColor = false;
+            this.CancelButton.Visible = false;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            // 
             // ClientWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(711, 450);
+            this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.CreateOrderButton);
             this.Controls.Add(this.ChangeAccButton);
             this.Controls.Add(this.ClientOrderListButton);
@@ -112,5 +128,6 @@ namespace IS_FISU
         private System.Windows.Forms.Button ClientOrderListButton;
         private System.Windows.Forms.Button ChangeAccButton;
         private System.Windows.Forms.Button CreateOrderButton;
+        private System.Windows.Forms.Button CancelButton;
     }
 }
