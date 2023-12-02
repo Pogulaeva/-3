@@ -110,5 +110,25 @@ namespace IS_FISU
                 }
             }
         }
+
+        private void DeleteProductButton_Click(object sender, EventArgs e)
+        {
+            string connectString = "server=localhost; port=3306; username=root; password=root; database=IS_FISU";
+            MySqlConnection connection = new MySqlConnection(connectString);
+            connection.Open();
+            string id = IdOutput.Text;
+            string DeleteProductsSQL = $"DELETE from Products WHERE id =" + id;
+            MySqlCommand command = new MySqlCommand(DeleteProductsSQL, connection);
+            command.ExecuteReader();
+            connection.Close();
+
+            MessageBox.Show("Товар успешно удалён!", "");
+            // Очистка данных в DataGridView перед обновлением
+            DataBaseAdmin.DataSource = null;
+            DataBaseAdmin.Rows.Clear();
+            DataBaseAdmin.Columns.Clear();
+
+            LoadData1();
+        }
     }
 }
