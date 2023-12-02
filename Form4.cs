@@ -72,27 +72,42 @@ namespace IS_FISU
 
         private void SaveChangesButton_Click(object sender, EventArgs e)
         {
-            string connectString = "server=localhost; port=3306; username=root; password=root; database=IS_FISU";
-            MySqlConnection connection = new MySqlConnection(connectString);
-            connection.Open();
-            string id = IdOutput.Text;
-            string name = NameInputBox.Text;
-            string price = PriceInput.Text;
-            string amount = AmountInput.Text;
-            string supplydate = DateInput.Text;
+            if (IdOutput.Text.Length > 0)
+            {
+                string id = IdOutput.Text;
+                string name = NameInputBox.Text;
+                string price = PriceInput.Text;
+                string amount = AmountInput.Text;
+                string supplydate = DateInput.Text;
+                if ((NameInputBox.Text != name) | (PriceInput.Text != price) | (AmountInput.Text != amount) | (DateInput.Text != supplydate))
+                {
+                    string connectString = "server=localhost; port=3306; username=root; password=root; database=IS_FISU";
+                    MySqlConnection connection = new MySqlConnection(connectString);
+                    connection.Open();
 
-            string SaveChangesSQL = $"UPDATE Products SET name_product = '" + name + "', price_product = '" + price + "', amount_product = '" + amount + "', supply_date = '" + supplydate + "' WHERE id =" + id;
-            MySqlCommand command = new MySqlCommand(SaveChangesSQL, connection);
-            command.ExecuteReader();
-            connection.Close();
 
-            MessageBox.Show("Товар успешно изменён!", "");
-            // Очистка данных в DataGridView перед обновлением
-            DataBaseAdmin.DataSource = null;
-            DataBaseAdmin.Rows.Clear();
-            DataBaseAdmin.Columns.Clear();
+                    string SaveChangesSQL = $"UPDATE Products SET name_product = '" + name + "', price_product = '" + price + "', amount_product = '" + amount + "', supply_date = '" + supplydate + "' WHERE id =" + id;
+                    MySqlCommand command = new MySqlCommand(SaveChangesSQL, connection);
+                    command.ExecuteReader();
+                    connection.Close();
 
-            LoadData1();
+                    MessageBox.Show("Товар успешно изменён!", "");
+                    // Очистка данных в DataGridView перед обновлением
+                    DataBaseAdmin.DataSource = null;
+                    DataBaseAdmin.Rows.Clear();
+                    DataBaseAdmin.Columns.Clear();
+
+                    LoadData1();
+                }
+                else
+                {
+                    MessageBox.Show("Вы не внесли никаких изменений в данные о товаре", "");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Сначала выберите товар из списка", "");
+            }
         }
         private void LoadData1()
         {
@@ -113,22 +128,29 @@ namespace IS_FISU
 
         private void DeleteProductButton_Click(object sender, EventArgs e)
         {
-            string connectString = "server=localhost; port=3306; username=root; password=root; database=IS_FISU";
-            MySqlConnection connection = new MySqlConnection(connectString);
-            connection.Open();
-            string id = IdOutput.Text;
-            string DeleteProductsSQL = $"DELETE from Products WHERE id =" + id;
-            MySqlCommand command = new MySqlCommand(DeleteProductsSQL, connection);
-            command.ExecuteReader();
-            connection.Close();
+            if (IdOutput.Text.Length > 0)
+            {
+                string connectString = "server=localhost; port=3306; username=root; password=root; database=IS_FISU";
+                MySqlConnection connection = new MySqlConnection(connectString);
+                connection.Open();
+                string id = IdOutput.Text;
+                string DeleteProductsSQL = $"DELETE from Products WHERE id =" + id;
+                MySqlCommand command = new MySqlCommand(DeleteProductsSQL, connection);
+                command.ExecuteReader();
+                connection.Close();
 
-            MessageBox.Show("Товар успешно удалён!", "");
-            // Очистка данных в DataGridView перед обновлением
-            DataBaseAdmin.DataSource = null;
-            DataBaseAdmin.Rows.Clear();
-            DataBaseAdmin.Columns.Clear();
+                MessageBox.Show("Товар успешно удалён!", "");
+                // Очистка данных в DataGridView перед обновлением
+                DataBaseAdmin.DataSource = null;
+                DataBaseAdmin.Rows.Clear();
+                DataBaseAdmin.Columns.Clear();
 
-            LoadData1();
+                LoadData1();
+            }
+            else
+            {
+                MessageBox.Show("Сначала выберите товар из списка", "");
+            }
         }
     }
 }

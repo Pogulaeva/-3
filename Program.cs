@@ -16,6 +16,7 @@ namespace IS_FISU
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new AccountChooseWindow());
         }
     }
 }
