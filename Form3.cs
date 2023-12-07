@@ -26,7 +26,7 @@ namespace IS_FISU
 
         private void ToOrderListButton_Click(object sender, EventArgs e)
         {
-            var myForm = new OrderListWindow();
+            var myForm = new ChooseOrderListWindow();
             myForm.Show(); 
         }
 
