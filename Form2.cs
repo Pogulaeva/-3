@@ -16,6 +16,9 @@ namespace IS_FISU
 
         DataBase dataBase = new DataBase();
         String ID;
+        private DateTime orderdate;
+        int amounttestproduct;
+
 
         public ClientWindow()
         {
@@ -72,7 +75,10 @@ namespace IS_FISU
                 ID = DataBaseClient.Rows[e.RowIndex].Cells["idd"].FormattedValue.ToString();
                 NameOutput.Text = DataBaseClient.Rows[e.RowIndex].Cells["name_product"].FormattedValue.ToString();
                 PriceOutput.Text = DataBaseClient.Rows[e.RowIndex].Cells["price_product"].FormattedValue.ToString();
+                string amounttest = DataBaseClient.Rows[e.RowIndex].Cells["amount_product"].FormattedValue.ToString();
+                amounttestproduct = Int32.Parse(amounttest);
                 MakeOfFinalPrice();
+
             }
         }
         private void ChangeAmountBox_ValueChanged(object sender, EventArgs e)
@@ -90,5 +96,40 @@ namespace IS_FISU
             ForPaymentOutput.Text = changingprice;
         }
 
+       private void MakeOrderButton_Click(object sender, EventArgs e)
+        {
+            if (ID != null)
+            {
+                if (((int)ChangeAmountBox.Value > 0) | ((int)ChangeAmountBox.Value <= amounttestproduct))
+                {
+                    // Запись текущей даты и времени при нажатии на кнопку
+                    orderdate = DateTime.Now;
+
+                    string connectString = "server=localhost; port=3306; username=root; password=root; database=IS_FISU";
+                    MySqlConnection connection = new MySqlConnection(connectString);
+                    connection.Open();
+
+                    string idproduct = ID;
+                    string price = ForPaymentOutput.Text;
+                    string amount = ChangeAmountBox.Text;
+                    int orderagreement = 0;
+                    string MakeOrderSQL = $"insert into Orders(id_product, amount_product, order_price, order_date, order_agreement) values ('{idproduct}', '{amount}', '{price}', '{orderdate}', '{orderagreement}')";
+                    MySqlCommand command = new MySqlCommand(MakeOrderSQL, connection);
+                    command.ExecuteReader();
+                    connection.Close();
+
+                    MessageBox.Show("Заказ сформирован, ждите одобрения заказа от администратора", "");
+                }
+                else
+                {
+                    MessageBox.Show("Такого количества товара нет на складе!", "");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Сначала выберите товар для совершения заказа!", "");
+            }
+
+        }
     }
 }

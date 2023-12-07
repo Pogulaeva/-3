@@ -47,9 +47,9 @@ namespace IS_FISU
             this.ForPaymentText = new System.Windows.Forms.Label();
             this.ForPaymentOutput = new System.Windows.Forms.Label();
             this.MakeOrderButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.NameProductHeader = new System.Windows.Forms.Label();
+            this.ProceProductHeader = new System.Windows.Forms.Label();
+            this.AmountProductHeader = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataBaseClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ChangeAmountBox)).BeginInit();
             this.SuspendLayout();
@@ -205,9 +205,19 @@ namespace IS_FISU
             0,
             0,
             0});
+            this.ChangeAmountBox.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.ChangeAmountBox.Name = "ChangeAmountBox";
             this.ChangeAmountBox.Size = new System.Drawing.Size(110, 23);
             this.ChangeAmountBox.TabIndex = 9;
+            this.ChangeAmountBox.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.ChangeAmountBox.ValueChanged += new System.EventHandler(this.ChangeAmountBox_ValueChanged);
             // 
             // ForPaymentText
@@ -242,33 +252,34 @@ namespace IS_FISU
             this.MakeOrderButton.TabIndex = 12;
             this.MakeOrderButton.Text = "Заказать";
             this.MakeOrderButton.UseVisualStyleBackColor = false;
+            this.MakeOrderButton.Click += new System.EventHandler(this.MakeOrderButton_Click);
             // 
-            // label1
+            // NameProductHeader
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 79);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 13);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Наименование товара";
+            this.NameProductHeader.AutoSize = true;
+            this.NameProductHeader.Location = new System.Drawing.Point(16, 79);
+            this.NameProductHeader.Name = "NameProductHeader";
+            this.NameProductHeader.Size = new System.Drawing.Size(121, 13);
+            this.NameProductHeader.TabIndex = 13;
+            this.NameProductHeader.Text = "Наименование товара";
             // 
-            // label2
+            // ProceProductHeader
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(198, 79);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 13);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Цена товара";
+            this.ProceProductHeader.AutoSize = true;
+            this.ProceProductHeader.Location = new System.Drawing.Point(198, 79);
+            this.ProceProductHeader.Name = "ProceProductHeader";
+            this.ProceProductHeader.Size = new System.Drawing.Size(71, 13);
+            this.ProceProductHeader.TabIndex = 14;
+            this.ProceProductHeader.Text = "Цена товара";
             // 
-            // label3
+            // AmountProductHeader
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(320, 79);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 13);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Кол-во товара";
+            this.AmountProductHeader.AutoSize = true;
+            this.AmountProductHeader.Location = new System.Drawing.Point(320, 79);
+            this.AmountProductHeader.Name = "AmountProductHeader";
+            this.AmountProductHeader.Size = new System.Drawing.Size(79, 13);
+            this.AmountProductHeader.TabIndex = 15;
+            this.AmountProductHeader.Text = "Кол-во товара";
             // 
             // ClientWindow
             // 
@@ -276,9 +287,9 @@ namespace IS_FISU
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(711, 433);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.AmountProductHeader);
+            this.Controls.Add(this.ProceProductHeader);
+            this.Controls.Add(this.NameProductHeader);
             this.Controls.Add(this.MakeOrderButton);
             this.Controls.Add(this.ForPaymentOutput);
             this.Controls.Add(this.ForPaymentText);
@@ -324,8 +335,8 @@ namespace IS_FISU
         private System.Windows.Forms.DataGridViewTextBoxColumn price_product;
         private System.Windows.Forms.DataGridViewTextBoxColumn amount_product;
         private System.Windows.Forms.DataGridViewTextBoxColumn date_product;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label NameProductHeader;
+        private System.Windows.Forms.Label ProceProductHeader;
+        private System.Windows.Forms.Label AmountProductHeader;
     }
 }

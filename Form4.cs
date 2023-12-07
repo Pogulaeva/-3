@@ -16,6 +16,11 @@ namespace IS_FISU
 
         DataBase dataBase = new DataBase();
 
+        string nametest;
+        string pricetest;
+        string amounttest;
+        string supplydatetest;
+
         public StuffStorageWindow()
         {
             InitializeComponent();
@@ -67,6 +72,11 @@ namespace IS_FISU
                 PriceInput.Text = DataBaseAdmin.Rows[e.RowIndex].Cells["price_product"].FormattedValue.ToString();
                 AmountInput.Text = DataBaseAdmin.Rows[e.RowIndex].Cells["amount_product"].FormattedValue.ToString();
                 DateInput.Text = DataBaseAdmin.Rows[e.RowIndex].Cells["supply_date"].FormattedValue.ToString();
+
+                nametest = NameInputBox.Text;
+                pricetest = PriceInput.Text;
+                amounttest = AmountInput.Text;
+                supplydatetest = DateInput.Text;
             }
         }
 
@@ -79,7 +89,7 @@ namespace IS_FISU
                 string price = PriceInput.Text;
                 string amount = AmountInput.Text;
                 string supplydate = DateInput.Text;
-                if ((NameInputBox.Text != name) | (PriceInput.Text != price) | (AmountInput.Text != amount) | (DateInput.Text != supplydate))
+                if ((NameInputBox.Text != nametest) | (PriceInput.Text != pricetest) | (AmountInput.Text != amounttest) | (DateInput.Text != supplydatetest))
                 {
                     string connectString = "server=localhost; port=3306; username=root; password=root; database=IS_FISU";
                     MySqlConnection connection = new MySqlConnection(connectString);
