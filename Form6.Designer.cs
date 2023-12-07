@@ -133,7 +133,7 @@ namespace IS_FISU
             // 
             this.AmountInput.Location = new System.Drawing.Point(169, 220);
             this.AmountInput.Maximum = new decimal(new int[] {
-            10000,
+            100000,
             0,
             0,
             0});

@@ -15,16 +15,12 @@ namespace IS_FISU
     {
 
         DataBase dataBase = new DataBase();
-        private List<Control> originalControls = new List<Control>();
+        String ID;
 
         public ClientWindow()
         {
             InitializeComponent();
-            PopulateCheckListBoxes();
-            foreach (Control control in Controls)
-            {
-                originalControls.Add(control);
-            }
+            LoadData();
         }
 
         private void ClientOrderListButton_Click(object sender, EventArgs e)
@@ -40,135 +36,59 @@ namespace IS_FISU
             myForm.Show();
         }
 
-        private void PopulateCheckListBoxes()
+
+        private void LoadData()
         {
-            // Замените строку подключения на свою
-            string connectionString = "server=localhost; port=3306; username=root; password=root; database=IS_FISU";
-            string query = "SELECT * FROM Products"; // Замените на имя вашей таблицы
+            string connectString = "server=localhost; port=3306; username=root; password=root; database=IS_FISU";
+            MySqlConnection connection = new MySqlConnection(connectString);
+            connection.Open();
+            string query = "SELECT * FROM Products ORDER BY id";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataReader reader = command.ExecuteReader();
+            List<string[]> data = new List<string[]>();
 
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            while (reader.Read())
             {
-                connection.Open();
+                data.Add(new string[5]);
 
-                using (MySqlCommand command = new MySqlCommand(query, connection))
-                {
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        int positionY = 60;
-                        while (reader.Read())
-                        {
-                            // Создаем новый CheckListBox
-                            CheckedListBox checkListBox = new CheckedListBox();
-                            checkListBox.Location = new System.Drawing.Point(5, positionY);
-                            checkListBox.SelectedIndexChanged += CheckListBox_SelectedIndexChanged; // Добавляем обработчик события
-
-                            // Собираем значения из каждого столбца в строку
-                            string rowData = string.Empty;
-                            for (int i = 0; i < reader.FieldCount; i++)
-                            {
-                                rowData += $"{reader[i]}, ";
-                            }
-
-                            // Удаляем последнюю запятую и пробел
-                            rowData = rowData.TrimEnd(',', ' ');
-
-                            // Добавляем строку в CheckListBox
-                            checkListBox.Items.Add(rowData);
-
-                            checkListBox.Size = new System.Drawing.Size(500, 40);
-                            checkListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-
-                            // Добавляем CheckListBox на форму
-                            Controls.Add(checkListBox);
-                            positionY += checkListBox.Height;
-                        }
-                    }
-                }
-            }
-        }
-        private void CheckListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Проверяем, есть ли хотя бы один выбранный элемент в любом из CheckListBox
-            bool anyItemSelected = false;
-            foreach (Control control in Controls)
-            {
-                if (control is CheckedListBox checkListBox && checkListBox.CheckedItems.Count > 0)
-                {
-                    anyItemSelected = true;
-                    break;
-                }
+                data[data.Count - 1][0] = reader[0].ToString();
+                data[data.Count - 1][1] = reader[1].ToString();
+                data[data.Count - 1][2] = reader[2].ToString();
+                data[data.Count - 1][3] = reader[3].ToString();
+                data[data.Count - 1][4] = reader[4].ToString();
             }
 
-            // Показываем или скрываем кнопку в зависимости от наличия выбранных элементов
-            CreateOrderButton.Visible = anyItemSelected;
+            reader.Close();
+            connection.Close();
+            foreach (string[] s in data)
+                DataBaseClient.Rows.Add(s);
         }
 
-        private void CreateOrderButton_Click(object sender, EventArgs e)
+        private void DataBaseClient_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            List<string> selectedItems = new List<string>();
-
-            // Собираем выбранные элементы из CheckedListBox
-            foreach (Control control in Controls)
+            if (DataBaseClient.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
-                if (control is CheckedListBox checkListBox)
-                {
-                    foreach (var item in checkListBox.CheckedItems)
-                    {
-                        selectedItems.Add(item.ToString());
-                    }
-                }
-            }
-
-            // Скрываем все элементы на форме
-            foreach (Control control in Controls)
-            {
-                control.Visible = false;
-            }
-
-            // Создаем Label и NumericUpDown для каждого выбранного элемента
-            int posY = 10;
-            foreach (var selectedItem in selectedItems)
-            {
-                Label label = new Label();
-                label.Text = selectedItem;
-                label.Location = new System.Drawing.Point(10, posY);
-                Controls.Add(label);
-
-                NumericUpDown numericUpDown = new NumericUpDown();
-                numericUpDown.Location = new System.Drawing.Point(150, posY);
-                Controls.Add(numericUpDown);
-
-                posY += 30; // Инкрементируем позицию для следующего Label и NumericUpDown
-            }
-
-            CancelButton.Visible = true;
-            var placeOrderButton = new Button();
-            placeOrderButton.Text = "Заказать";
-            placeOrderButton.Location = new System.Drawing.Point(150, posY + 10);
-            placeOrderButton.Visible = false; // По умолчанию кнопка "Заказать" скрыта
-            placeOrderButton.Click += PlaceOrderButton_Click;
-            Controls.Add(placeOrderButton);
-        }
-        private void CancelButton_Click(object sender, EventArgs e)
-        {
-            // Обработчик события для кнопки "Отмена"
-            RestoreOriginalControls();
-
-        }
-
-        private void PlaceOrderButton_Click(object sender, EventArgs e)
-        {
-            // Обработчик события для кнопки "Заказать"
-            RestoreOriginalControls();
-        }
-        private void RestoreOriginalControls()
-        {
-            // Восстанавливаем изначальные элементы формы
-            foreach (Control control in originalControls)
-            {
-                control.Visible = true;
-                CancelButton.Visible = false;
+                DataBaseClient.CurrentRow.Selected = true;
+                ID = DataBaseClient.Rows[e.RowIndex].Cells["idd"].FormattedValue.ToString();
+                NameOutput.Text = DataBaseClient.Rows[e.RowIndex].Cells["name_product"].FormattedValue.ToString();
+                PriceOutput.Text = DataBaseClient.Rows[e.RowIndex].Cells["price_product"].FormattedValue.ToString();
+                MakeOfFinalPrice();
             }
         }
+        private void ChangeAmountBox_ValueChanged(object sender, EventArgs e)
+        {
+            MakeOfFinalPrice();
+        }
+
+        private void MakeOfFinalPrice()
+        {
+            // Обновление текста в Label при изменении значения в NumericUpDown
+            int amount = (int)ChangeAmountBox.Value;
+            int price = Int32.Parse(PriceOutput.Text);
+            int finalprice = amount * price;
+            String changingprice = finalprice.ToString();
+            ForPaymentOutput.Text = changingprice;
+        }
+
     }
 }
