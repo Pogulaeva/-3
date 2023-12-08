@@ -32,11 +32,6 @@ namespace IS_FISU
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.AddNewProductButton = new System.Windows.Forms.Button();
             this.DataBaseAdmin = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amount_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supply_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SaveChangesButton = new System.Windows.Forms.Button();
             this.PriceStandardInfo = new System.Windows.Forms.Label();
             this.UnitText = new System.Windows.Forms.Label();
@@ -58,6 +53,11 @@ namespace IS_FISU
             this.PriceProductHeader = new System.Windows.Forms.Label();
             this.AmountProductHeader = new System.Windows.Forms.Label();
             this.DateHeader = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount_products = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supply_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DataBaseAdmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PriceInput)).BeginInit();
@@ -79,14 +79,14 @@ namespace IS_FISU
             // DataBaseAdmin
             // 
             this.DataBaseAdmin.AllowUserToAddRows = false;
-            this.DataBaseAdmin.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(191)))), ((int)(((byte)(249)))));
+            this.DataBaseAdmin.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(208)))), ((int)(((byte)(255)))));
             this.DataBaseAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataBaseAdmin.ColumnHeadersVisible = false;
             this.DataBaseAdmin.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.name_product,
             this.price_product,
-            this.amount_product,
+            this.amount_products,
             this.supply_date});
             this.DataBaseAdmin.Location = new System.Drawing.Point(12, 131);
             this.DataBaseAdmin.Name = "DataBaseAdmin";
@@ -95,47 +95,6 @@ namespace IS_FISU
             this.DataBaseAdmin.Size = new System.Drawing.Size(638, 296);
             this.DataBaseAdmin.TabIndex = 1;
             this.DataBaseAdmin.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataBaseAdmin_CellClick);
-            // 
-            // id
-            // 
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 80;
-            // 
-            // name_product
-            // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(196)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.name_product.DefaultCellStyle = dataGridViewCellStyle1;
-            this.name_product.HeaderText = "Наименование товара";
-            this.name_product.MinimumWidth = 15;
-            this.name_product.Name = "name_product";
-            this.name_product.ReadOnly = true;
-            this.name_product.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.name_product.Width = 200;
-            // 
-            // price_product
-            // 
-            this.price_product.HeaderText = "Цена товара";
-            this.price_product.Name = "price_product";
-            this.price_product.ReadOnly = true;
-            this.price_product.Width = 120;
-            // 
-            // amount_product
-            // 
-            this.amount_product.HeaderText = "Кол-во товара";
-            this.amount_product.Name = "amount_product";
-            this.amount_product.ReadOnly = true;
-            this.amount_product.Width = 120;
-            // 
-            // supply_date
-            // 
-            this.supply_date.HeaderText = "Дата поступления";
-            this.supply_date.Name = "supply_date";
-            this.supply_date.ReadOnly = true;
-            this.supply_date.Width = 120;
             // 
             // SaveChangesButton
             // 
@@ -347,6 +306,47 @@ namespace IS_FISU
             this.DateHeader.TabIndex = 49;
             this.DateHeader.Text = "Дата поступления";
             // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 80;
+            // 
+            // name_product
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(196)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.name_product.DefaultCellStyle = dataGridViewCellStyle1;
+            this.name_product.HeaderText = "Наименование товара";
+            this.name_product.MinimumWidth = 15;
+            this.name_product.Name = "name_product";
+            this.name_product.ReadOnly = true;
+            this.name_product.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.name_product.Width = 200;
+            // 
+            // price_product
+            // 
+            this.price_product.HeaderText = "Цена товара";
+            this.price_product.Name = "price_product";
+            this.price_product.ReadOnly = true;
+            this.price_product.Width = 120;
+            // 
+            // amount_products
+            // 
+            this.amount_products.HeaderText = "Кол-во товара";
+            this.amount_products.Name = "amount_products";
+            this.amount_products.ReadOnly = true;
+            this.amount_products.Width = 120;
+            // 
+            // supply_date
+            // 
+            this.supply_date.HeaderText = "Дата поступления";
+            this.supply_date.Name = "supply_date";
+            this.supply_date.ReadOnly = true;
+            this.supply_date.Width = 120;
+            // 
             // StuffStorageWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -409,16 +409,16 @@ namespace IS_FISU
         private System.Windows.Forms.DateTimePicker DateInput;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label IdOutput;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name_product;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price_product;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amount_product;
-        private System.Windows.Forms.DataGridViewTextBoxColumn supply_date;
         private System.Windows.Forms.Button DeleteProductButton;
         private System.Windows.Forms.Label IDHeader;
         private System.Windows.Forms.Label NameProductHeader;
         private System.Windows.Forms.Label PriceProductHeader;
         private System.Windows.Forms.Label AmountProductHeader;
         private System.Windows.Forms.Label DateHeader;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name_product;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price_product;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amount_products;
+        private System.Windows.Forms.DataGridViewTextBoxColumn supply_date;
     }
 }

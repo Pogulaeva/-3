@@ -42,7 +42,7 @@ namespace IS_FISU
             var amount = AmountInput.Value;
             var supplydate = DateInput.Text;
 
-            string AddingProduct = $"insert into Products(name_product, price_product, amount_product, supply_date) values ('{name}', '{price}', '{amount}', '{supplydate}')";
+            string AddingProduct = $"insert into Products(name_product, price_product, amount_products, supply_date) values ('{name}', '{price}', '{amount}', '{supplydate}')";
 
             MySqlCommand command = new MySqlCommand(AddingProduct, dataBase.getConnection());
 

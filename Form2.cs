@@ -100,7 +100,7 @@ namespace IS_FISU
         {
             if (ID != null)
             {
-                if (((int)ChangeAmountBox.Value > 0) | ((int)ChangeAmountBox.Value <= amounttestproduct))
+                if (((int)ChangeAmountBox.Value > 0) && ((int)ChangeAmountBox.Value <= amounttestproduct))
                 {
                     // Запись текущей даты и времени при нажатии на кнопку
                     orderdate = DateTime.Now;
@@ -113,7 +113,8 @@ namespace IS_FISU
                     string price = ForPaymentOutput.Text;
                     string amount = ChangeAmountBox.Text;
                     int orderagreement = 0;
-                    string MakeOrderSQL = $"insert into Orders(id_product, amount_product, order_price, order_date, order_agreement) values ('{idproduct}', '{amount}', '{price}', '{orderdate}', '{orderagreement}')";
+                    int changesconfirm = 0;
+                    string MakeOrderSQL = $"insert into Orders(id_product, amount_product, order_price, order_date, order_agreement, changes_confirm) values ('{idproduct}', '{amount}', '{price}', '{orderdate}', '{orderagreement}', '{changesconfirm}')";
                     MySqlCommand command = new MySqlCommand(MakeOrderSQL, connection);
                     command.ExecuteReader();
                     connection.Close();

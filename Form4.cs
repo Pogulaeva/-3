@@ -70,7 +70,7 @@ namespace IS_FISU
                 IdOutput.Text = DataBaseAdmin.Rows[e.RowIndex].Cells["id"].FormattedValue.ToString();
                 NameInputBox.Text = DataBaseAdmin.Rows[e.RowIndex].Cells["name_product"].FormattedValue.ToString();
                 PriceInput.Text = DataBaseAdmin.Rows[e.RowIndex].Cells["price_product"].FormattedValue.ToString();
-                AmountInput.Text = DataBaseAdmin.Rows[e.RowIndex].Cells["amount_product"].FormattedValue.ToString();
+                AmountInput.Text = DataBaseAdmin.Rows[e.RowIndex].Cells["amount_products"].FormattedValue.ToString();
                 DateInput.Text = DataBaseAdmin.Rows[e.RowIndex].Cells["supply_date"].FormattedValue.ToString();
 
                 nametest = NameInputBox.Text;
@@ -96,7 +96,7 @@ namespace IS_FISU
                     connection.Open();
 
 
-                    string SaveChangesSQL = $"UPDATE Products SET name_product = '" + name + "', price_product = '" + price + "', amount_product = '" + amount + "', supply_date = '" + supplydate + "' WHERE id =" + id;
+                    string SaveChangesSQL = $"UPDATE Products SET name_product = '" + name + "', price_product = '" + price + "', amount_products = '" + amount + "', supply_date = '" + supplydate + "' WHERE id =" + id;
                     MySqlCommand command = new MySqlCommand(SaveChangesSQL, connection);
                     command.ExecuteReader();
                     connection.Close();
