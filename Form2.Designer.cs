@@ -33,6 +33,11 @@ namespace IS_FISU
             this.ClientOrderListButton = new System.Windows.Forms.Button();
             this.ChangeAccButton = new System.Windows.Forms.Button();
             this.DataBaseClient = new System.Windows.Forms.DataGridView();
+            this.idd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameText = new System.Windows.Forms.Label();
             this.NameOutput = new System.Windows.Forms.Label();
             this.PriceText = new System.Windows.Forms.Label();
@@ -45,11 +50,6 @@ namespace IS_FISU
             this.NameProductHeader = new System.Windows.Forms.Label();
             this.ProceProductHeader = new System.Windows.Forms.Label();
             this.AmountProductHeader = new System.Windows.Forms.Label();
-            this.idd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amount_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DataBaseClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ChangeAmountBox)).BeginInit();
             this.SuspendLayout();
@@ -94,6 +94,7 @@ namespace IS_FISU
             // 
             this.DataBaseClient.AllowUserToAddRows = false;
             this.DataBaseClient.AllowUserToDeleteRows = false;
+            this.DataBaseClient.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(213)))), ((int)(((byte)(226)))));
             this.DataBaseClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataBaseClient.ColumnHeadersVisible = false;
             this.DataBaseClient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -111,6 +112,42 @@ namespace IS_FISU
             this.DataBaseClient.Size = new System.Drawing.Size(424, 313);
             this.DataBaseClient.TabIndex = 3;
             this.DataBaseClient.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataBaseClient_CellClick);
+            // 
+            // idd
+            // 
+            this.idd.HeaderText = "ID";
+            this.idd.Name = "idd";
+            this.idd.ReadOnly = true;
+            this.idd.Visible = false;
+            // 
+            // name_product
+            // 
+            this.name_product.HeaderText = "Наименование товара";
+            this.name_product.Name = "name_product";
+            this.name_product.ReadOnly = true;
+            this.name_product.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.name_product.Width = 180;
+            // 
+            // price_product
+            // 
+            this.price_product.HeaderText = "Цена товара";
+            this.price_product.Name = "price_product";
+            this.price_product.ReadOnly = true;
+            this.price_product.Width = 120;
+            // 
+            // amount_product
+            // 
+            this.amount_product.HeaderText = "Кол-во товара";
+            this.amount_product.Name = "amount_product";
+            this.amount_product.ReadOnly = true;
+            this.amount_product.Width = 120;
+            // 
+            // date_product
+            // 
+            this.date_product.HeaderText = "Дата поступления";
+            this.date_product.Name = "date_product";
+            this.date_product.ReadOnly = true;
+            this.date_product.Visible = false;
             // 
             // NameText
             // 
@@ -244,42 +281,6 @@ namespace IS_FISU
             this.AmountProductHeader.Size = new System.Drawing.Size(79, 13);
             this.AmountProductHeader.TabIndex = 15;
             this.AmountProductHeader.Text = "Кол-во товара";
-            // 
-            // idd
-            // 
-            this.idd.HeaderText = "ID";
-            this.idd.Name = "idd";
-            this.idd.ReadOnly = true;
-            this.idd.Visible = false;
-            // 
-            // name_product
-            // 
-            this.name_product.HeaderText = "Наименование товара";
-            this.name_product.Name = "name_product";
-            this.name_product.ReadOnly = true;
-            this.name_product.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.name_product.Width = 180;
-            // 
-            // price_product
-            // 
-            this.price_product.HeaderText = "Цена товара";
-            this.price_product.Name = "price_product";
-            this.price_product.ReadOnly = true;
-            this.price_product.Width = 120;
-            // 
-            // amount_product
-            // 
-            this.amount_product.HeaderText = "Кол-во товара";
-            this.amount_product.Name = "amount_product";
-            this.amount_product.ReadOnly = true;
-            this.amount_product.Width = 120;
-            // 
-            // date_product
-            // 
-            this.date_product.HeaderText = "Дата поступления";
-            this.date_product.Name = "date_product";
-            this.date_product.ReadOnly = true;
-            this.date_product.Visible = false;
             // 
             // ClientWindow
             // 

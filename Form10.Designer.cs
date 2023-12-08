@@ -31,6 +31,13 @@ namespace IS_FISU
         {
             this.ExplanationText = new System.Windows.Forms.Label();
             this.DataBaseRedactedOrders = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount_products = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.order_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.order_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OrderApproveCheckBox = new System.Windows.Forms.CheckBox();
             this.ApproveOrderButton = new System.Windows.Forms.Button();
             this.ConfirmChangesButton = new System.Windows.Forms.Button();
@@ -45,13 +52,6 @@ namespace IS_FISU
             this.NameProductText = new System.Windows.Forms.Label();
             this.IDoutput = new System.Windows.Forms.Label();
             this.IDtext = new System.Windows.Forms.Label();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amount_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amount_products = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.order_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.order_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DataBaseRedactedOrders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountProductChange)).BeginInit();
             this.SuspendLayout();
@@ -70,6 +70,7 @@ namespace IS_FISU
             // 
             this.DataBaseRedactedOrders.AllowUserToAddRows = false;
             this.DataBaseRedactedOrders.AllowUserToDeleteRows = false;
+            this.DataBaseRedactedOrders.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(208)))), ((int)(((byte)(255)))));
             this.DataBaseRedactedOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataBaseRedactedOrders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -86,6 +87,49 @@ namespace IS_FISU
             this.DataBaseRedactedOrders.Size = new System.Drawing.Size(603, 356);
             this.DataBaseRedactedOrders.TabIndex = 1;
             this.DataBaseRedactedOrders.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataBaseRedactedOrders_CellClick);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // name_product
+            // 
+            this.name_product.HeaderText = "Наименование товара";
+            this.name_product.Name = "name_product";
+            this.name_product.ReadOnly = true;
+            // 
+            // price_product
+            // 
+            this.price_product.HeaderText = "Цена шт. товара";
+            this.price_product.Name = "price_product";
+            this.price_product.ReadOnly = true;
+            this.price_product.Visible = false;
+            // 
+            // amount_product
+            // 
+            this.amount_product.HeaderText = "Кол-во товара";
+            this.amount_product.Name = "amount_product";
+            this.amount_product.ReadOnly = true;
+            // 
+            // amount_products
+            // 
+            this.amount_products.HeaderText = "Кол-во товаров на складе";
+            this.amount_products.Name = "amount_products";
+            this.amount_products.ReadOnly = true;
+            // 
+            // order_price
+            // 
+            this.order_price.HeaderText = "Сумма заказа";
+            this.order_price.Name = "order_price";
+            this.order_price.ReadOnly = true;
+            // 
+            // order_date
+            // 
+            this.order_date.HeaderText = "Дата заказа";
+            this.order_date.Name = "order_date";
+            this.order_date.ReadOnly = true;
             // 
             // OrderApproveCheckBox
             // 
@@ -233,49 +277,6 @@ namespace IS_FISU
             this.IDtext.Size = new System.Drawing.Size(21, 17);
             this.IDtext.TabIndex = 18;
             this.IDtext.Text = "ID";
-            // 
-            // id
-            // 
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // name_product
-            // 
-            this.name_product.HeaderText = "Наименование товара";
-            this.name_product.Name = "name_product";
-            this.name_product.ReadOnly = true;
-            // 
-            // price_product
-            // 
-            this.price_product.HeaderText = "Цена шт. товара";
-            this.price_product.Name = "price_product";
-            this.price_product.ReadOnly = true;
-            this.price_product.Visible = false;
-            // 
-            // amount_product
-            // 
-            this.amount_product.HeaderText = "Кол-во товара";
-            this.amount_product.Name = "amount_product";
-            this.amount_product.ReadOnly = true;
-            // 
-            // amount_products
-            // 
-            this.amount_products.HeaderText = "Кол-во товаров на складе";
-            this.amount_products.Name = "amount_products";
-            this.amount_products.ReadOnly = true;
-            // 
-            // order_price
-            // 
-            this.order_price.HeaderText = "Сумма заказа";
-            this.order_price.Name = "order_price";
-            this.order_price.ReadOnly = true;
-            // 
-            // order_date
-            // 
-            this.order_date.HeaderText = "Дата заказа";
-            this.order_date.Name = "order_date";
-            this.order_date.ReadOnly = true;
             // 
             // EditedOrdersWindow
             // 

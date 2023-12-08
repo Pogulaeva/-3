@@ -29,62 +29,73 @@ namespace IS_FISU
         /// </summary>
         private void InitializeComponent()
         {
-            this.CanceledOrdersText = new System.Windows.Forms.Label();
-            this.ActiveOrdersText = new System.Windows.Forms.Label();
-            this.ClosedOrdersText = new System.Windows.Forms.Label();
+            this.OrdersNotConfirmByClientButton = new System.Windows.Forms.Button();
+            this.OrdersNotConfirmedByAdminButton = new System.Windows.Forms.Button();
+            this.ActiveOrdersButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // CanceledOrdersText
+            // OrdersNotConfirmByClientButton
             // 
-            this.CanceledOrdersText.AutoSize = true;
-            this.CanceledOrdersText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CanceledOrdersText.Location = new System.Drawing.Point(12, 38);
-            this.CanceledOrdersText.Name = "CanceledOrdersText";
-            this.CanceledOrdersText.Size = new System.Drawing.Size(198, 48);
-            this.CanceledOrdersText.TabIndex = 0;
-            this.CanceledOrdersText.Text = "Список \r\nотменённых заказов";
+            this.OrdersNotConfirmByClientButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(194)))), ((int)(((byte)(237)))));
+            this.OrdersNotConfirmByClientButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OrdersNotConfirmByClientButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.OrdersNotConfirmByClientButton.Location = new System.Drawing.Point(12, 25);
+            this.OrdersNotConfirmByClientButton.Name = "OrdersNotConfirmByClientButton";
+            this.OrdersNotConfirmByClientButton.Size = new System.Drawing.Size(349, 65);
+            this.OrdersNotConfirmByClientButton.TabIndex = 2;
+            this.OrdersNotConfirmByClientButton.Text = "Список заказов, ожидающих подтверждения от пользователя";
+            this.OrdersNotConfirmByClientButton.UseVisualStyleBackColor = false;
+            this.OrdersNotConfirmByClientButton.Click += new System.EventHandler(this.OrdersNotConfirmByClientButton_Click);
+            this.OrdersNotConfirmByClientButton.MouseEnter += new System.EventHandler(this.OrdersNotConfirmByClientButton_MouseEnter);
             // 
-            // ActiveOrdersText
+            // OrdersNotConfirmedByAdminButton
             // 
-            this.ActiveOrdersText.AutoSize = true;
-            this.ActiveOrdersText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ActiveOrdersText.Location = new System.Drawing.Point(305, 38);
-            this.ActiveOrdersText.Name = "ActiveOrdersText";
-            this.ActiveOrdersText.Size = new System.Drawing.Size(171, 48);
-            this.ActiveOrdersText.TabIndex = 1;
-            this.ActiveOrdersText.Text = "Список \r\nактивных заказов";
+            this.OrdersNotConfirmedByAdminButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(194)))), ((int)(((byte)(237)))));
+            this.OrdersNotConfirmedByAdminButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OrdersNotConfirmedByAdminButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.OrdersNotConfirmedByAdminButton.Location = new System.Drawing.Point(12, 96);
+            this.OrdersNotConfirmedByAdminButton.Name = "OrdersNotConfirmedByAdminButton";
+            this.OrdersNotConfirmedByAdminButton.Size = new System.Drawing.Size(349, 65);
+            this.OrdersNotConfirmedByAdminButton.TabIndex = 3;
+            this.OrdersNotConfirmedByAdminButton.Text = "Список непроверенных администратором заказов";
+            this.OrdersNotConfirmedByAdminButton.UseVisualStyleBackColor = false;
+            this.OrdersNotConfirmedByAdminButton.Click += new System.EventHandler(this.OrdersNotConfirmedByAdminButton_Click);
+            this.OrdersNotConfirmedByAdminButton.MouseEnter += new System.EventHandler(this.OrdersNotConfirmedByAdminButton_MouseEnter);
             // 
-            // ClosedOrdersText
+            // ActiveOrdersButton
             // 
-            this.ClosedOrdersText.AutoSize = true;
-            this.ClosedOrdersText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ClosedOrdersText.Location = new System.Drawing.Point(563, 38);
-            this.ClosedOrdersText.Name = "ClosedOrdersText";
-            this.ClosedOrdersText.Size = new System.Drawing.Size(209, 48);
-            this.ClosedOrdersText.TabIndex = 2;
-            this.ClosedOrdersText.Text = "Список \r\nзавершённых заказов";
+            this.ActiveOrdersButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(194)))), ((int)(((byte)(237)))));
+            this.ActiveOrdersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ActiveOrdersButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ActiveOrdersButton.Location = new System.Drawing.Point(12, 167);
+            this.ActiveOrdersButton.Name = "ActiveOrdersButton";
+            this.ActiveOrdersButton.Size = new System.Drawing.Size(349, 65);
+            this.ActiveOrdersButton.TabIndex = 4;
+            this.ActiveOrdersButton.Text = "Список активных заказов";
+            this.ActiveOrdersButton.UseVisualStyleBackColor = false;
+            this.ActiveOrdersButton.Click += new System.EventHandler(this.ActiveOrdersButton_Click);
+            this.ActiveOrdersButton.MouseEnter += new System.EventHandler(this.ActiveOrdersButton_MouseEnter);
             // 
             // ClientOrdersWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.ClosedOrdersText);
-            this.Controls.Add(this.ActiveOrdersText);
-            this.Controls.Add(this.CanceledOrdersText);
+            this.ClientSize = new System.Drawing.Size(376, 358);
+            this.Controls.Add(this.ActiveOrdersButton);
+            this.Controls.Add(this.OrdersNotConfirmedByAdminButton);
+            this.Controls.Add(this.OrdersNotConfirmByClientButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "ClientOrdersWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Система учёта продаж интернет-магазина";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label CanceledOrdersText;
-        private System.Windows.Forms.Label ActiveOrdersText;
-        private System.Windows.Forms.Label ClosedOrdersText;
+        private System.Windows.Forms.Button OrdersNotConfirmByClientButton;
+        private System.Windows.Forms.Button OrdersNotConfirmedByAdminButton;
+        private System.Windows.Forms.Button ActiveOrdersButton;
     }
 }

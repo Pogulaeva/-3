@@ -18,10 +18,6 @@ namespace IS_FISU
             InitializeComponent();
         }
 
-        private void CancelButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
 
         private void SendMessageButton_Click(object sender, EventArgs e)
         {
