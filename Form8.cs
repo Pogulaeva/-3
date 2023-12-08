@@ -22,5 +22,11 @@ namespace IS_FISU
             var myForm = new OrderListWindow();
             myForm.Show(); 
         }
+
+        private void EditedOrdersButton_Click(object sender, EventArgs e)
+        {
+            var myForm = new EditedOrdersWindow();
+            myForm.Show();
+        }
     }
 }

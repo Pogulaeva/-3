@@ -80,11 +80,11 @@ namespace IS_FISU
             this.product_storage,
             this.order_price,
             this.order_date});
-            this.DataBaseUnconfirmedOrders.Location = new System.Drawing.Point(18, 64);
+            this.DataBaseUnconfirmedOrders.Location = new System.Drawing.Point(18, 75);
             this.DataBaseUnconfirmedOrders.Name = "DataBaseUnconfirmedOrders";
             this.DataBaseUnconfirmedOrders.ReadOnly = true;
             this.DataBaseUnconfirmedOrders.RowHeadersVisible = false;
-            this.DataBaseUnconfirmedOrders.Size = new System.Drawing.Size(713, 371);
+            this.DataBaseUnconfirmedOrders.Size = new System.Drawing.Size(713, 360);
             this.DataBaseUnconfirmedOrders.TabIndex = 1;
             this.DataBaseUnconfirmedOrders.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataBaseUnconfirmedOrders_CellClick);
             // 

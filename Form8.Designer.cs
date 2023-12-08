@@ -57,6 +57,7 @@ namespace IS_FISU
             this.EditedOrdersButton.TabIndex = 1;
             this.EditedOrdersButton.Text = "Список редактированых заказов";
             this.EditedOrdersButton.UseVisualStyleBackColor = false;
+            this.EditedOrdersButton.Click += new System.EventHandler(this.EditedOrdersButton_Click);
             // 
             // ChooseOrderListWindow
             // 

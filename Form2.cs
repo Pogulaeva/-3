@@ -114,7 +114,8 @@ namespace IS_FISU
                     string amount = ChangeAmountBox.Text;
                     int orderagreement = 0;
                     int changesconfirm = 0;
-                    string MakeOrderSQL = $"insert into Orders(id_product, amount_product, order_price, order_date, order_agreement, changes_confirm) values ('{idproduct}', '{amount}', '{price}', '{orderdate}', '{orderagreement}', '{changesconfirm}')";
+                    int orderwasedited = 0;
+                    string MakeOrderSQL = $"insert into Orders(id_product, amount_product, order_price, order_date, order_agreement, changes_confirm, order_was_edited) values ('{idproduct}', '{amount}', '{price}', '{orderdate}', '{orderagreement}', '{changesconfirm}', '{orderwasedited}')";
                     MySqlCommand command = new MySqlCommand(MakeOrderSQL, connection);
                     command.ExecuteReader();
                     connection.Close();

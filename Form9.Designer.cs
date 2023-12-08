@@ -74,6 +74,7 @@ namespace IS_FISU
             this.Controls.Add(this.TipText);
             this.Controls.Add(this.CommentBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "CommentForDeletingWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Система учёта продаж интернет-магазина";

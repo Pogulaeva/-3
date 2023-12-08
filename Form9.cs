@@ -30,7 +30,7 @@ namespace IS_FISU
 
                 AMessageToClient();
                 this.Hide();
-                var myForm = new OrderListWindow();
+                var myForm = new ChooseOrderListWindow();
                 myForm.Show();
             }
         }
