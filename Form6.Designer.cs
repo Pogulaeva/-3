@@ -215,7 +215,7 @@ namespace IS_FISU
             this.PriceStandardInfo.Size = new System.Drawing.Size(21, 13);
             this.PriceStandardInfo.TabIndex = 14;
             this.PriceStandardInfo.Text = "[ i ]";
-            this.PriceStandardInfo.Click += new System.EventHandler(this.PriceStandardInfo_Click);
+            this.PriceStandardInfo.MouseEnter += new System.EventHandler(this.PriceStandardInfo_MouseEnter);
             // 
             // NewProductWindow
             // 

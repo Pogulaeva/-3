@@ -32,6 +32,11 @@ namespace IS_FISU
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.AddNewProductButton = new System.Windows.Forms.Button();
             this.DataBaseAdmin = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount_products = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supply_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SaveChangesButton = new System.Windows.Forms.Button();
             this.PriceStandardInfo = new System.Windows.Forms.Label();
             this.UnitText = new System.Windows.Forms.Label();
@@ -53,11 +58,6 @@ namespace IS_FISU
             this.PriceProductHeader = new System.Windows.Forms.Label();
             this.AmountProductHeader = new System.Windows.Forms.Label();
             this.DateHeader = new System.Windows.Forms.Label();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amount_products = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supply_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DataBaseAdmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PriceInput)).BeginInit();
@@ -96,6 +96,47 @@ namespace IS_FISU
             this.DataBaseAdmin.TabIndex = 1;
             this.DataBaseAdmin.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataBaseAdmin_CellClick);
             // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 80;
+            // 
+            // name_product
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(196)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.name_product.DefaultCellStyle = dataGridViewCellStyle1;
+            this.name_product.HeaderText = "Наименование товара";
+            this.name_product.MinimumWidth = 15;
+            this.name_product.Name = "name_product";
+            this.name_product.ReadOnly = true;
+            this.name_product.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.name_product.Width = 200;
+            // 
+            // price_product
+            // 
+            this.price_product.HeaderText = "Цена товара";
+            this.price_product.Name = "price_product";
+            this.price_product.ReadOnly = true;
+            this.price_product.Width = 120;
+            // 
+            // amount_products
+            // 
+            this.amount_products.HeaderText = "Кол-во товара";
+            this.amount_products.Name = "amount_products";
+            this.amount_products.ReadOnly = true;
+            this.amount_products.Width = 120;
+            // 
+            // supply_date
+            // 
+            this.supply_date.HeaderText = "Дата поступления";
+            this.supply_date.Name = "supply_date";
+            this.supply_date.ReadOnly = true;
+            this.supply_date.Width = 120;
+            // 
             // SaveChangesButton
             // 
             this.SaveChangesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
@@ -116,6 +157,7 @@ namespace IS_FISU
             this.PriceStandardInfo.Size = new System.Drawing.Size(21, 13);
             this.PriceStandardInfo.TabIndex = 39;
             this.PriceStandardInfo.Text = "[ i ]";
+            this.PriceStandardInfo.MouseEnter += new System.EventHandler(this.PriceStandardInfo_MouseEnter);
             // 
             // UnitText
             // 
@@ -305,47 +347,6 @@ namespace IS_FISU
             this.DateHeader.Size = new System.Drawing.Size(100, 13);
             this.DateHeader.TabIndex = 49;
             this.DateHeader.Text = "Дата поступления";
-            // 
-            // id
-            // 
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 80;
-            // 
-            // name_product
-            // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(196)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.name_product.DefaultCellStyle = dataGridViewCellStyle1;
-            this.name_product.HeaderText = "Наименование товара";
-            this.name_product.MinimumWidth = 15;
-            this.name_product.Name = "name_product";
-            this.name_product.ReadOnly = true;
-            this.name_product.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.name_product.Width = 200;
-            // 
-            // price_product
-            // 
-            this.price_product.HeaderText = "Цена товара";
-            this.price_product.Name = "price_product";
-            this.price_product.ReadOnly = true;
-            this.price_product.Width = 120;
-            // 
-            // amount_products
-            // 
-            this.amount_products.HeaderText = "Кол-во товара";
-            this.amount_products.Name = "amount_products";
-            this.amount_products.ReadOnly = true;
-            this.amount_products.Width = 120;
-            // 
-            // supply_date
-            // 
-            this.supply_date.HeaderText = "Дата поступления";
-            this.supply_date.Name = "supply_date";
-            this.supply_date.ReadOnly = true;
-            this.supply_date.Width = 120;
             // 
             // StuffStorageWindow
             // 

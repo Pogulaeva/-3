@@ -162,5 +162,11 @@ namespace IS_FISU
                 MessageBox.Show("Сначала выберите товар из списка", "");
             }
         }
+
+        private void PriceStandardInfo_MouseEnter(object sender, EventArgs e)
+        {
+            var tooltip = new ToolTip(); //Создание подсказки, в которой поясняется правильность записи цены в поле
+            tooltip.SetToolTip(PriceStandardInfo, "Писать в поле цены товара нужно только цифры, ничего более"); //Вывод текста в подсказке 
+        }
     }
 }
