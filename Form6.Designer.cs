@@ -37,12 +37,12 @@ namespace IS_FISU
             this.NameInputBox = new System.Windows.Forms.RichTextBox();
             this.PriceInput = new System.Windows.Forms.NumericUpDown();
             this.AmountInput = new System.Windows.Forms.NumericUpDown();
-            this.DateInput = new System.Windows.Forms.DateTimePicker();
             this.CancelButton = new System.Windows.Forms.Button();
             this.CurrencyText = new System.Windows.Forms.Label();
             this.UnitText = new System.Windows.Forms.Label();
             this.AddProductButton = new System.Windows.Forms.Button();
             this.PriceStandardInfo = new System.Windows.Forms.Label();
+            this.DateInput = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.PriceInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountInput)).BeginInit();
             this.SuspendLayout();
@@ -151,17 +151,6 @@ namespace IS_FISU
             0,
             0});
             // 
-            // DateInput
-            // 
-            this.DateInput.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DateInput.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.DateInput.Location = new System.Drawing.Point(214, 282);
-            this.DateInput.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
-            this.DateInput.Name = "DateInput";
-            this.DateInput.Size = new System.Drawing.Size(204, 20);
-            this.DateInput.TabIndex = 9;
-            this.DateInput.Value = new System.DateTime(2023, 12, 1, 0, 0, 0, 0);
-            // 
             // CancelButton
             // 
             this.CancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
@@ -217,17 +206,27 @@ namespace IS_FISU
             this.PriceStandardInfo.Text = "[ i ]";
             this.PriceStandardInfo.MouseEnter += new System.EventHandler(this.PriceStandardInfo_MouseEnter);
             // 
+            // DateInput
+            // 
+            this.DateInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DateInput.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DateInput.Location = new System.Drawing.Point(223, 280);
+            this.DateInput.MinDate = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
+            this.DateInput.Name = "DateInput";
+            this.DateInput.Size = new System.Drawing.Size(163, 23);
+            this.DateInput.TabIndex = 15;
+            // 
             // NewProductWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(453, 450);
+            this.Controls.Add(this.DateInput);
             this.Controls.Add(this.PriceStandardInfo);
             this.Controls.Add(this.AddProductButton);
             this.Controls.Add(this.UnitText);
             this.Controls.Add(this.CurrencyText);
             this.Controls.Add(this.CancelButton);
-            this.Controls.Add(this.DateInput);
             this.Controls.Add(this.AmountInput);
             this.Controls.Add(this.PriceInput);
             this.Controls.Add(this.NameInputBox);
@@ -257,11 +256,11 @@ namespace IS_FISU
         private System.Windows.Forms.RichTextBox NameInputBox;
         private System.Windows.Forms.NumericUpDown PriceInput;
         private System.Windows.Forms.NumericUpDown AmountInput;
-        private System.Windows.Forms.DateTimePicker DateInput;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Label CurrencyText;
         private System.Windows.Forms.Label UnitText;
         private System.Windows.Forms.Button AddProductButton;
         private System.Windows.Forms.Label PriceStandardInfo;
+        private System.Windows.Forms.DateTimePicker DateInput;
     }
 }

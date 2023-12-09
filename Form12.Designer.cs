@@ -57,6 +57,7 @@ namespace IS_FISU
             this.NewOrderPriceOutput = new System.Windows.Forms.Label();
             this.ConfirmChangesButton = new System.Windows.Forms.Button();
             this.CancelOrderButton = new System.Windows.Forms.Button();
+            this.BackButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataBaseUnwatchedOrders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountProductChange)).BeginInit();
             this.SuspendLayout();
@@ -333,11 +334,24 @@ namespace IS_FISU
             this.CancelOrderButton.UseVisualStyleBackColor = false;
             this.CancelOrderButton.Click += new System.EventHandler(this.CancelOrderButton_Click);
             // 
+            // BackButton
+            // 
+            this.BackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(194)))), ((int)(((byte)(237)))));
+            this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BackButton.Location = new System.Drawing.Point(984, 25);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(116, 55);
+            this.BackButton.TabIndex = 31;
+            this.BackButton.Text = "Вернуться к выбору списка заказов";
+            this.BackButton.UseVisualStyleBackColor = false;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            // 
             // OrdersNotConfirmedByAdminWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1121, 442);
+            this.Controls.Add(this.BackButton);
             this.Controls.Add(this.CancelOrderButton);
             this.Controls.Add(this.ConfirmChangesButton);
             this.Controls.Add(this.NewOrderPriceOutput);
@@ -400,5 +414,6 @@ namespace IS_FISU
         private System.Windows.Forms.DataGridViewTextBoxColumn price_product;
         private System.Windows.Forms.DataGridViewTextBoxColumn order_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn order_date;
+        private System.Windows.Forms.Button BackButton;
     }
 }

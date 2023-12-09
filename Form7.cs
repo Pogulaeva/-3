@@ -45,20 +45,31 @@ namespace IS_FISU
 
         private void OrdersNotConfirmByClientButton_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var myForm = new OrdersNotConfirmByClientWindow();
             myForm.Show();
         }
 
         private void OrdersNotConfirmedByAdminButton_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var myForm = new OrdersNotConfirmedByAdminWindow();
             myForm.Show();
         }
 
         private void ActiveOrdersButton_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var myForm = new ActiveOrdersWindow();
             myForm.Show();
         }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var myForm = new ClientWindow();
+            myForm.Show(); 
+        }
+      
     }
 }

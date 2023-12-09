@@ -28,6 +28,7 @@ namespace IS_FISU
 
         private void ClientOrderListButton_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var myForm = new ClientOrdersWindow();
             myForm.Show();
         }
@@ -45,7 +46,7 @@ namespace IS_FISU
             string connectString = "server=localhost; port=3306; username=root; password=root; database=IS_FISU";
             MySqlConnection connection = new MySqlConnection(connectString);
             connection.Open();
-            string query = "SELECT * FROM Products ORDER BY id";
+            string query = "SELECT * FROM Products WHERE amount_products > 0 ORDER BY id";
             MySqlCommand command = new MySqlCommand(query, connection);
             MySqlDataReader reader = command.ExecuteReader();
             List<string[]> data = new List<string[]>();
@@ -69,21 +70,35 @@ namespace IS_FISU
 
         private void DataBaseClient_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (DataBaseClient.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            try
             {
-                DataBaseClient.CurrentRow.Selected = true;
-                ID = DataBaseClient.Rows[e.RowIndex].Cells["idd"].FormattedValue.ToString();
-                NameOutput.Text = DataBaseClient.Rows[e.RowIndex].Cells["name_product"].FormattedValue.ToString();
-                PriceOutput.Text = DataBaseClient.Rows[e.RowIndex].Cells["price_product"].FormattedValue.ToString();
-                string amounttest = DataBaseClient.Rows[e.RowIndex].Cells["amount_product"].FormattedValue.ToString();
-                amounttestproduct = Int32.Parse(amounttest);
-                MakeOfFinalPrice();
+                if (DataBaseClient.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    DataBaseClient.CurrentRow.Selected = true;
+                    ID = DataBaseClient.Rows[e.RowIndex].Cells["idd"].FormattedValue.ToString();
+                    NameOutput.Text = DataBaseClient.Rows[e.RowIndex].Cells["name_product"].FormattedValue.ToString();
+                    PriceOutput.Text = DataBaseClient.Rows[e.RowIndex].Cells["price_product"].FormattedValue.ToString();
+                    string amounttest = DataBaseClient.Rows[e.RowIndex].Cells["amount_product"].FormattedValue.ToString();
+                    amounttestproduct = Int32.Parse(amounttest);
+                    MakeOfFinalPrice();
 
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Выберите одну запись, а не шапку таблицы", "");
             }
         }
         private void ChangeAmountBox_ValueChanged(object sender, EventArgs e)
         {
-            MakeOfFinalPrice();
+            if (ID != null)
+            {
+                MakeOfFinalPrice();
+            }
+            else
+            {
+                MessageBox.Show("Сначала выберите товар из списка", "");
+            }
         }
 
         private void MakeOfFinalPrice()
@@ -96,31 +111,34 @@ namespace IS_FISU
             ForPaymentOutput.Text = changingprice;
         }
 
-       private void MakeOrderButton_Click(object sender, EventArgs e)
+        private void MakeOrderButton_Click(object sender, EventArgs e)
         {
             if (ID != null)
             {
                 if (((int)ChangeAmountBox.Value > 0) && ((int)ChangeAmountBox.Value <= amounttestproduct))
                 {
-                    // Запись текущей даты и времени при нажатии на кнопку
-                    orderdate = DateTime.Now;
+                    if (MessageBox.Show("Сделать заказ?", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        // Запись текущей даты и времени при нажатии на кнопку
+                        orderdate = DateTime.Now;
 
-                    string connectString = "server=localhost; port=3306; username=root; password=root; database=IS_FISU";
-                    MySqlConnection connection = new MySqlConnection(connectString);
-                    connection.Open();
+                        string connectString = "server=localhost; port=3306; username=root; password=root; database=IS_FISU";
+                        MySqlConnection connection = new MySqlConnection(connectString);
+                        connection.Open();
 
-                    string idproduct = ID;
-                    string price = ForPaymentOutput.Text;
-                    string amount = ChangeAmountBox.Text;
-                    int orderagreement = 0;
-                    int changesconfirm = 0;
-                    int orderwasedited = 0;
-                    string MakeOrderSQL = $"insert into Orders(id_product, amount_product, order_price, order_date, order_agreement, changes_confirm, order_was_edited) values ('{idproduct}', '{amount}', '{price}', '{orderdate}', '{orderagreement}', '{changesconfirm}', '{orderwasedited}')";
-                    MySqlCommand command = new MySqlCommand(MakeOrderSQL, connection);
-                    command.ExecuteReader();
-                    connection.Close();
+                        string idproduct = ID;
+                        string price = ForPaymentOutput.Text;
+                        string amount = ChangeAmountBox.Text;
+                        int orderagreement = 0;
+                        int changesconfirm = 0;
+                        int orderwasedited = 0;
+                        string MakeOrderSQL = $"insert into Orders(id_product, amount_product, order_price, order_date, order_agreement, changes_confirm, order_was_edited) values ('{idproduct}', '{amount}', '{price}', '{orderdate}', '{orderagreement}', '{changesconfirm}', '{orderwasedited}')";
+                        MySqlCommand command = new MySqlCommand(MakeOrderSQL, connection);
+                        command.ExecuteReader();
+                        connection.Close();
 
-                    MessageBox.Show("Заказ сформирован, ждите одобрения заказа от администратора", "");
+                        MessageBox.Show("Заказ сформирован, ждите одобрения заказа от администратора", "");
+                    }
                 }
                 else
                 {
@@ -133,5 +151,7 @@ namespace IS_FISU
             }
 
         }
+
+       
     }
 }

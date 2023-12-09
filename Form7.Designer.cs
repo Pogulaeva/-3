@@ -32,6 +32,7 @@ namespace IS_FISU
             this.OrdersNotConfirmByClientButton = new System.Windows.Forms.Button();
             this.OrdersNotConfirmedByAdminButton = new System.Windows.Forms.Button();
             this.ActiveOrdersButton = new System.Windows.Forms.Button();
+            this.BackButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // OrdersNotConfirmByClientButton
@@ -76,11 +77,25 @@ namespace IS_FISU
             this.ActiveOrdersButton.Click += new System.EventHandler(this.ActiveOrdersButton_Click);
             this.ActiveOrdersButton.MouseEnter += new System.EventHandler(this.ActiveOrdersButton_MouseEnter);
             // 
+            // BackButton
+            // 
+            this.BackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(194)))), ((int)(((byte)(237)))));
+            this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BackButton.Location = new System.Drawing.Point(237, 252);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(124, 58);
+            this.BackButton.TabIndex = 5;
+            this.BackButton.Text = "Вернуться к списку товаров";
+            this.BackButton.UseVisualStyleBackColor = false;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            // 
             // ClientOrdersWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 358);
+            this.ClientSize = new System.Drawing.Size(376, 322);
+            this.Controls.Add(this.BackButton);
             this.Controls.Add(this.ActiveOrdersButton);
             this.Controls.Add(this.OrdersNotConfirmedByAdminButton);
             this.Controls.Add(this.OrdersNotConfirmByClientButton);
@@ -97,5 +112,6 @@ namespace IS_FISU
         private System.Windows.Forms.Button OrdersNotConfirmByClientButton;
         private System.Windows.Forms.Button OrdersNotConfirmedByAdminButton;
         private System.Windows.Forms.Button ActiveOrdersButton;
+        private System.Windows.Forms.Button BackButton;
     }
 }

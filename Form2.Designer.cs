@@ -47,9 +47,6 @@ namespace IS_FISU
             this.ForPaymentText = new System.Windows.Forms.Label();
             this.ForPaymentOutput = new System.Windows.Forms.Label();
             this.MakeOrderButton = new System.Windows.Forms.Button();
-            this.NameProductHeader = new System.Windows.Forms.Label();
-            this.ProceProductHeader = new System.Windows.Forms.Label();
-            this.AmountProductHeader = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataBaseClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ChangeAmountBox)).BeginInit();
             this.SuspendLayout();
@@ -96,20 +93,19 @@ namespace IS_FISU
             this.DataBaseClient.AllowUserToDeleteRows = false;
             this.DataBaseClient.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(213)))), ((int)(((byte)(226)))));
             this.DataBaseClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataBaseClient.ColumnHeadersVisible = false;
             this.DataBaseClient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idd,
             this.name_product,
             this.price_product,
             this.amount_product,
             this.date_product});
-            this.DataBaseClient.Location = new System.Drawing.Point(11, 99);
+            this.DataBaseClient.Location = new System.Drawing.Point(11, 84);
             this.DataBaseClient.MultiSelect = false;
             this.DataBaseClient.Name = "DataBaseClient";
             this.DataBaseClient.ReadOnly = true;
             this.DataBaseClient.RowHeadersVisible = false;
             this.DataBaseClient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataBaseClient.Size = new System.Drawing.Size(424, 313);
+            this.DataBaseClient.Size = new System.Drawing.Size(424, 328);
             this.DataBaseClient.TabIndex = 3;
             this.DataBaseClient.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataBaseClient_CellClick);
             // 
@@ -255,42 +251,11 @@ namespace IS_FISU
             this.MakeOrderButton.UseVisualStyleBackColor = false;
             this.MakeOrderButton.Click += new System.EventHandler(this.MakeOrderButton_Click);
             // 
-            // NameProductHeader
-            // 
-            this.NameProductHeader.AutoSize = true;
-            this.NameProductHeader.Location = new System.Drawing.Point(16, 79);
-            this.NameProductHeader.Name = "NameProductHeader";
-            this.NameProductHeader.Size = new System.Drawing.Size(121, 13);
-            this.NameProductHeader.TabIndex = 13;
-            this.NameProductHeader.Text = "Наименование товара";
-            // 
-            // ProceProductHeader
-            // 
-            this.ProceProductHeader.AutoSize = true;
-            this.ProceProductHeader.Location = new System.Drawing.Point(198, 79);
-            this.ProceProductHeader.Name = "ProceProductHeader";
-            this.ProceProductHeader.Size = new System.Drawing.Size(71, 13);
-            this.ProceProductHeader.TabIndex = 14;
-            this.ProceProductHeader.Text = "Цена товара";
-            // 
-            // AmountProductHeader
-            // 
-            this.AmountProductHeader.AutoSize = true;
-            this.AmountProductHeader.Location = new System.Drawing.Point(320, 79);
-            this.AmountProductHeader.Name = "AmountProductHeader";
-            this.AmountProductHeader.Size = new System.Drawing.Size(79, 13);
-            this.AmountProductHeader.TabIndex = 15;
-            this.AmountProductHeader.Text = "Кол-во товара";
-            // 
             // ClientWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(711, 433);
-            this.Controls.Add(this.AmountProductHeader);
-            this.Controls.Add(this.ProceProductHeader);
-            this.Controls.Add(this.NameProductHeader);
             this.Controls.Add(this.MakeOrderButton);
             this.Controls.Add(this.ForPaymentOutput);
             this.Controls.Add(this.ForPaymentText);
@@ -331,9 +296,6 @@ namespace IS_FISU
         private System.Windows.Forms.Label ForPaymentText;
         private System.Windows.Forms.Label ForPaymentOutput;
         private System.Windows.Forms.Button MakeOrderButton;
-        private System.Windows.Forms.Label NameProductHeader;
-        private System.Windows.Forms.Label ProceProductHeader;
-        private System.Windows.Forms.Label AmountProductHeader;
         private System.Windows.Forms.DataGridViewTextBoxColumn idd;
         private System.Windows.Forms.DataGridViewTextBoxColumn name_product;
         private System.Windows.Forms.DataGridViewTextBoxColumn price_product;

@@ -34,32 +34,34 @@ namespace IS_FISU
 
         private void AddProductButton_Click(object sender, EventArgs e)
         {
-
-            DataBase dataBase = new DataBase();
-
-            var name = NameInputBox.Text;
-            var price = PriceInput.Value;
-            var amount = AmountInput.Value;
-            var supplydate = DateInput.Text;
-
-            string AddingProduct = $"insert into Products(name_product, price_product, amount_products, supply_date) values ('{name}', '{price}', '{amount}', '{supplydate}')";
-
-            MySqlCommand command = new MySqlCommand(AddingProduct, dataBase.getConnection());
-
-            dataBase.openConnection();
-
-            if (command.ExecuteNonQuery() == 1)
+            if (MessageBox.Show("Вы уверены что готовы добавить товар?", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
             {
-                MessageBox.Show("Товар успешно добавлен!", "");
-                this.Hide();
-                var myForm = new StuffStorageWindow();
-                myForm.Show();
+                DataBase dataBase = new DataBase();
+
+                var name = NameInputBox.Text;
+                var price = PriceInput.Value;
+                var amount = AmountInput.Value;
+                var supplydate = DateInput.Text;
+
+                string AddingProduct = $"insert into Products(name_product, price_product, amount_products, supply_date) values ('{name}', '{price}', '{amount}', '{supplydate}')";
+
+                MySqlCommand command = new MySqlCommand(AddingProduct, dataBase.getConnection());
+
+                dataBase.openConnection();
+
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("Товар успешно добавлен!", "");
+                    this.Hide();
+                    var myForm = new StuffStorageWindow();
+                    myForm.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Товар не добавлен", "");
+                }
+                dataBase.closeConnection();
             }
-            else
-            {
-                MessageBox.Show("Товар не добавлен", "");
-            }
-            dataBase.closeConnection();
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -76,5 +78,6 @@ namespace IS_FISU
                 this.Hide();
             }
         }
+ 
     }
 }

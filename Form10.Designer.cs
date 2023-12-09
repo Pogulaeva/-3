@@ -52,6 +52,7 @@ namespace IS_FISU
             this.NameProductText = new System.Windows.Forms.Label();
             this.IDoutput = new System.Windows.Forms.Label();
             this.IDtext = new System.Windows.Forms.Label();
+            this.BackButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataBaseRedactedOrders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountProductChange)).BeginInit();
             this.SuspendLayout();
@@ -278,11 +279,24 @@ namespace IS_FISU
             this.IDtext.TabIndex = 18;
             this.IDtext.Text = "ID";
             // 
+            // BackButton
+            // 
+            this.BackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
+            this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BackButton.Location = new System.Drawing.Point(831, 24);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(118, 54);
+            this.BackButton.TabIndex = 32;
+            this.BackButton.Text = "Вернуться к выбору списка заказов";
+            this.BackButton.UseVisualStyleBackColor = false;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            // 
             // EditedOrdersWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(973, 452);
+            this.ClientSize = new System.Drawing.Size(963, 452);
+            this.Controls.Add(this.BackButton);
             this.Controls.Add(this.OrderApproveCheckBox);
             this.Controls.Add(this.ApproveOrderButton);
             this.Controls.Add(this.ConfirmChangesButton);
@@ -335,5 +349,6 @@ namespace IS_FISU
         private System.Windows.Forms.DataGridViewTextBoxColumn amount_products;
         private System.Windows.Forms.DataGridViewTextBoxColumn order_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn order_date;
+        private System.Windows.Forms.Button BackButton;
     }
 }

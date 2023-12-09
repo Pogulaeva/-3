@@ -31,6 +31,7 @@ namespace IS_FISU
         {
             this.UnapprovedOrdersButton = new System.Windows.Forms.Button();
             this.EditedOrdersButton = new System.Windows.Forms.Button();
+            this.BackButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // UnapprovedOrdersButton
@@ -59,11 +60,25 @@ namespace IS_FISU
             this.EditedOrdersButton.UseVisualStyleBackColor = false;
             this.EditedOrdersButton.Click += new System.EventHandler(this.EditedOrdersButton_Click);
             // 
+            // BackButton
+            // 
+            this.BackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
+            this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BackButton.Location = new System.Drawing.Point(376, 151);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(120, 61);
+            this.BackButton.TabIndex = 2;
+            this.BackButton.Text = "Вернуться к меню";
+            this.BackButton.UseVisualStyleBackColor = false;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            // 
             // ChooseOrderListWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 239);
+            this.ClientSize = new System.Drawing.Size(508, 220);
+            this.Controls.Add(this.BackButton);
             this.Controls.Add(this.EditedOrdersButton);
             this.Controls.Add(this.UnapprovedOrdersButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -79,5 +94,6 @@ namespace IS_FISU
 
         private System.Windows.Forms.Button UnapprovedOrdersButton;
         private System.Windows.Forms.Button EditedOrdersButton;
+        private System.Windows.Forms.Button BackButton;
     }
 }

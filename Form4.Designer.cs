@@ -53,11 +53,7 @@ namespace IS_FISU
             this.label2 = new System.Windows.Forms.Label();
             this.IdOutput = new System.Windows.Forms.Label();
             this.DeleteProductButton = new System.Windows.Forms.Button();
-            this.IDHeader = new System.Windows.Forms.Label();
-            this.NameProductHeader = new System.Windows.Forms.Label();
-            this.PriceProductHeader = new System.Windows.Forms.Label();
-            this.AmountProductHeader = new System.Windows.Forms.Label();
-            this.DateHeader = new System.Windows.Forms.Label();
+            this.BackButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataBaseAdmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PriceInput)).BeginInit();
@@ -81,18 +77,17 @@ namespace IS_FISU
             this.DataBaseAdmin.AllowUserToAddRows = false;
             this.DataBaseAdmin.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(208)))), ((int)(((byte)(255)))));
             this.DataBaseAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataBaseAdmin.ColumnHeadersVisible = false;
             this.DataBaseAdmin.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.name_product,
             this.price_product,
             this.amount_products,
             this.supply_date});
-            this.DataBaseAdmin.Location = new System.Drawing.Point(12, 131);
+            this.DataBaseAdmin.Location = new System.Drawing.Point(12, 103);
             this.DataBaseAdmin.Name = "DataBaseAdmin";
             this.DataBaseAdmin.ReadOnly = true;
             this.DataBaseAdmin.RowHeadersVisible = false;
-            this.DataBaseAdmin.Size = new System.Drawing.Size(638, 296);
+            this.DataBaseAdmin.Size = new System.Drawing.Size(648, 341);
             this.DataBaseAdmin.TabIndex = 1;
             this.DataBaseAdmin.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataBaseAdmin_CellClick);
             // 
@@ -303,50 +298,17 @@ namespace IS_FISU
             this.DeleteProductButton.UseVisualStyleBackColor = false;
             this.DeleteProductButton.Click += new System.EventHandler(this.DeleteProductButton_Click);
             // 
-            // IDHeader
+            // BackButton
             // 
-            this.IDHeader.AutoSize = true;
-            this.IDHeader.Location = new System.Drawing.Point(12, 115);
-            this.IDHeader.Name = "IDHeader";
-            this.IDHeader.Size = new System.Drawing.Size(18, 13);
-            this.IDHeader.TabIndex = 45;
-            this.IDHeader.Text = "ID";
-            // 
-            // NameProductHeader
-            // 
-            this.NameProductHeader.AutoSize = true;
-            this.NameProductHeader.Location = new System.Drawing.Point(99, 115);
-            this.NameProductHeader.Name = "NameProductHeader";
-            this.NameProductHeader.Size = new System.Drawing.Size(121, 13);
-            this.NameProductHeader.TabIndex = 46;
-            this.NameProductHeader.Text = "Наименование товара";
-            // 
-            // PriceProductHeader
-            // 
-            this.PriceProductHeader.AutoSize = true;
-            this.PriceProductHeader.Location = new System.Drawing.Point(298, 115);
-            this.PriceProductHeader.Name = "PriceProductHeader";
-            this.PriceProductHeader.Size = new System.Drawing.Size(71, 13);
-            this.PriceProductHeader.TabIndex = 47;
-            this.PriceProductHeader.Text = "Цена товара";
-            // 
-            // AmountProductHeader
-            // 
-            this.AmountProductHeader.AutoSize = true;
-            this.AmountProductHeader.Location = new System.Drawing.Point(417, 115);
-            this.AmountProductHeader.Name = "AmountProductHeader";
-            this.AmountProductHeader.Size = new System.Drawing.Size(79, 13);
-            this.AmountProductHeader.TabIndex = 48;
-            this.AmountProductHeader.Text = "Кол-во товара";
-            // 
-            // DateHeader
-            // 
-            this.DateHeader.AutoSize = true;
-            this.DateHeader.Location = new System.Drawing.Point(539, 115);
-            this.DateHeader.Name = "DateHeader";
-            this.DateHeader.Size = new System.Drawing.Size(100, 13);
-            this.DateHeader.TabIndex = 49;
-            this.DateHeader.Text = "Дата поступления";
+            this.BackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
+            this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BackButton.Location = new System.Drawing.Point(971, 30);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(89, 47);
+            this.BackButton.TabIndex = 50;
+            this.BackButton.Text = "Вернуться к меню";
+            this.BackButton.UseVisualStyleBackColor = false;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // StuffStorageWindow
             // 
@@ -355,11 +317,7 @@ namespace IS_FISU
             this.AutoScroll = true;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(1072, 464);
-            this.Controls.Add(this.DateHeader);
-            this.Controls.Add(this.AmountProductHeader);
-            this.Controls.Add(this.PriceProductHeader);
-            this.Controls.Add(this.NameProductHeader);
-            this.Controls.Add(this.IDHeader);
+            this.Controls.Add(this.BackButton);
             this.Controls.Add(this.DeleteProductButton);
             this.Controls.Add(this.IdOutput);
             this.Controls.Add(this.label2);
@@ -411,15 +369,11 @@ namespace IS_FISU
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label IdOutput;
         private System.Windows.Forms.Button DeleteProductButton;
-        private System.Windows.Forms.Label IDHeader;
-        private System.Windows.Forms.Label NameProductHeader;
-        private System.Windows.Forms.Label PriceProductHeader;
-        private System.Windows.Forms.Label AmountProductHeader;
-        private System.Windows.Forms.Label DateHeader;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name_product;
         private System.Windows.Forms.DataGridViewTextBoxColumn price_product;
         private System.Windows.Forms.DataGridViewTextBoxColumn amount_products;
         private System.Windows.Forms.DataGridViewTextBoxColumn supply_date;
+        private System.Windows.Forms.Button BackButton;
     }
 }

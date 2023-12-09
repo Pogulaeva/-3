@@ -19,14 +19,24 @@ namespace IS_FISU
 
         private void UnapprovedOrdersButton_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var myForm = new OrderListWindow();
             myForm.Show(); 
         }
 
         private void EditedOrdersButton_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var myForm = new EditedOrdersWindow();
             myForm.Show();
         }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var myForm = new AdminWindow();
+            myForm.Show();
+        }
+       
     }
 }

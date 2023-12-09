@@ -20,12 +20,14 @@ namespace IS_FISU
 
         private void ToStuffListButton_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var myForm = new StuffStorageWindow();
             myForm.Show();
         }
 
         private void ToOrderListButton_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var myForm = new ChooseOrderListWindow();
             myForm.Show(); 
         }

@@ -31,6 +31,13 @@ namespace IS_FISU
         {
             this.OrderListText = new System.Windows.Forms.Label();
             this.DataBaseUnconfirmedOrders = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.product_storage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.order_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.order_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IDtext = new System.Windows.Forms.Label();
             this.IDoutput = new System.Windows.Forms.Label();
             this.NameProductText = new System.Windows.Forms.Label();
@@ -45,13 +52,7 @@ namespace IS_FISU
             this.ConfirmChangesButton = new System.Windows.Forms.Button();
             this.ApproveOrderButton = new System.Windows.Forms.Button();
             this.OrderApproveCheckBox = new System.Windows.Forms.CheckBox();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amount_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.product_storage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.order_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.order_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BackButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataBaseUnconfirmedOrders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountProductChange)).BeginInit();
             this.SuspendLayout();
@@ -87,6 +88,54 @@ namespace IS_FISU
             this.DataBaseUnconfirmedOrders.Size = new System.Drawing.Size(713, 360);
             this.DataBaseUnconfirmedOrders.TabIndex = 1;
             this.DataBaseUnconfirmedOrders.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataBaseUnconfirmedOrders_CellClick);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 70;
+            // 
+            // name_product
+            // 
+            this.name_product.HeaderText = "Наименование продукта";
+            this.name_product.Name = "name_product";
+            this.name_product.ReadOnly = true;
+            this.name_product.Width = 150;
+            // 
+            // price_product
+            // 
+            this.price_product.HeaderText = "Цена шт. товара";
+            this.price_product.Name = "price_product";
+            this.price_product.ReadOnly = true;
+            this.price_product.Visible = false;
+            // 
+            // amount_product
+            // 
+            this.amount_product.HeaderText = "Кол-во товара";
+            this.amount_product.Name = "amount_product";
+            this.amount_product.ReadOnly = true;
+            this.amount_product.Width = 120;
+            // 
+            // product_storage
+            // 
+            this.product_storage.HeaderText = "Кол-во товара на складе";
+            this.product_storage.Name = "product_storage";
+            this.product_storage.ReadOnly = true;
+            // 
+            // order_price
+            // 
+            this.order_price.HeaderText = "Сумма заказа";
+            this.order_price.Name = "order_price";
+            this.order_price.ReadOnly = true;
+            this.order_price.Width = 120;
+            // 
+            // order_date
+            // 
+            this.order_date.HeaderText = "Дата заказа";
+            this.order_date.Name = "order_date";
+            this.order_date.ReadOnly = true;
+            this.order_date.Width = 150;
             // 
             // IDtext
             // 
@@ -235,53 +284,17 @@ namespace IS_FISU
             this.OrderApproveCheckBox.Text = "Подтвердить заказ";
             this.OrderApproveCheckBox.UseVisualStyleBackColor = true;
             // 
-            // id
+            // BackButton
             // 
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 70;
-            // 
-            // name_product
-            // 
-            this.name_product.HeaderText = "Наименование продукта";
-            this.name_product.Name = "name_product";
-            this.name_product.ReadOnly = true;
-            this.name_product.Width = 150;
-            // 
-            // price_product
-            // 
-            this.price_product.HeaderText = "Цена шт. товара";
-            this.price_product.Name = "price_product";
-            this.price_product.ReadOnly = true;
-            this.price_product.Visible = false;
-            // 
-            // amount_product
-            // 
-            this.amount_product.HeaderText = "Кол-во товара";
-            this.amount_product.Name = "amount_product";
-            this.amount_product.ReadOnly = true;
-            this.amount_product.Width = 120;
-            // 
-            // product_storage
-            // 
-            this.product_storage.HeaderText = "Кол-во товара на складе";
-            this.product_storage.Name = "product_storage";
-            this.product_storage.ReadOnly = true;
-            // 
-            // order_price
-            // 
-            this.order_price.HeaderText = "Сумма заказа";
-            this.order_price.Name = "order_price";
-            this.order_price.ReadOnly = true;
-            this.order_price.Width = 120;
-            // 
-            // order_date
-            // 
-            this.order_date.HeaderText = "Дата заказа";
-            this.order_date.Name = "order_date";
-            this.order_date.ReadOnly = true;
-            this.order_date.Width = 150;
+            this.BackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
+            this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BackButton.Location = new System.Drawing.Point(977, 25);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(89, 47);
+            this.BackButton.TabIndex = 51;
+            this.BackButton.Text = "Вернуться к меню";
+            this.BackButton.UseVisualStyleBackColor = false;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // OrderListWindow
             // 
@@ -289,6 +302,7 @@ namespace IS_FISU
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1078, 450);
+            this.Controls.Add(this.BackButton);
             this.Controls.Add(this.OrderApproveCheckBox);
             this.Controls.Add(this.ApproveOrderButton);
             this.Controls.Add(this.ConfirmChangesButton);
@@ -341,5 +355,6 @@ namespace IS_FISU
         private System.Windows.Forms.DataGridViewTextBoxColumn product_storage;
         private System.Windows.Forms.DataGridViewTextBoxColumn order_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn order_date;
+        private System.Windows.Forms.Button BackButton;
     }
 }

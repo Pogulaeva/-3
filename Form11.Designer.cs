@@ -31,6 +31,11 @@ namespace IS_FISU
         {
             this.TipText = new System.Windows.Forms.Label();
             this.DataBaseWaitingForConfirm = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.order_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.order_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PriceOutput = new System.Windows.Forms.Label();
             this.ForPaymentText = new System.Windows.Forms.Label();
             this.AmountText = new System.Windows.Forms.Label();
@@ -43,11 +48,7 @@ namespace IS_FISU
             this.DateOutput = new System.Windows.Forms.Label();
             this.ConfirmChangesButton = new System.Windows.Forms.Button();
             this.CancelOrderButton = new System.Windows.Forms.Button();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amount_product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.order_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.order_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BackButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataBaseWaitingForConfirm)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,6 +81,40 @@ namespace IS_FISU
             this.DataBaseWaitingForConfirm.Size = new System.Drawing.Size(664, 313);
             this.DataBaseWaitingForConfirm.TabIndex = 1;
             this.DataBaseWaitingForConfirm.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataBaseWaitingForConfirm_CellClick);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Номер заказа";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // name_product
+            // 
+            this.name_product.HeaderText = "Наименование товара";
+            this.name_product.Name = "name_product";
+            this.name_product.ReadOnly = true;
+            this.name_product.Width = 180;
+            // 
+            // amount_product
+            // 
+            this.amount_product.HeaderText = "Кол-во товара";
+            this.amount_product.Name = "amount_product";
+            this.amount_product.ReadOnly = true;
+            this.amount_product.Width = 120;
+            // 
+            // order_price
+            // 
+            this.order_price.HeaderText = "Сумма заказа";
+            this.order_price.Name = "order_price";
+            this.order_price.ReadOnly = true;
+            this.order_price.Width = 120;
+            // 
+            // order_date
+            // 
+            this.order_date.HeaderText = "Дата заказа";
+            this.order_date.Name = "order_date";
+            this.order_date.ReadOnly = true;
+            this.order_date.Width = 140;
             // 
             // PriceOutput
             // 
@@ -202,45 +237,24 @@ namespace IS_FISU
             this.CancelOrderButton.UseVisualStyleBackColor = false;
             this.CancelOrderButton.Click += new System.EventHandler(this.CancelOrderButton_Click);
             // 
-            // id
+            // BackButton
             // 
-            this.id.HeaderText = "Номер заказа";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // name_product
-            // 
-            this.name_product.HeaderText = "Наименование товара";
-            this.name_product.Name = "name_product";
-            this.name_product.ReadOnly = true;
-            this.name_product.Width = 180;
-            // 
-            // amount_product
-            // 
-            this.amount_product.HeaderText = "Кол-во товара";
-            this.amount_product.Name = "amount_product";
-            this.amount_product.ReadOnly = true;
-            this.amount_product.Width = 120;
-            // 
-            // order_price
-            // 
-            this.order_price.HeaderText = "Сумма заказа";
-            this.order_price.Name = "order_price";
-            this.order_price.ReadOnly = true;
-            this.order_price.Width = 120;
-            // 
-            // order_date
-            // 
-            this.order_date.HeaderText = "Дата заказа";
-            this.order_date.Name = "order_date";
-            this.order_date.ReadOnly = true;
-            this.order_date.Width = 140;
+            this.BackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(194)))), ((int)(((byte)(237)))));
+            this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BackButton.Location = new System.Drawing.Point(829, 15);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(104, 51);
+            this.BackButton.TabIndex = 25;
+            this.BackButton.Text = "Вернуться к выбору списка заказов";
+            this.BackButton.UseVisualStyleBackColor = false;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // OrdersNotConfirmByClientWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(948, 403);
+            this.Controls.Add(this.BackButton);
             this.Controls.Add(this.CancelOrderButton);
             this.Controls.Add(this.ConfirmChangesButton);
             this.Controls.Add(this.DateOutput);
@@ -286,5 +300,6 @@ namespace IS_FISU
         private System.Windows.Forms.DataGridViewTextBoxColumn amount_product;
         private System.Windows.Forms.DataGridViewTextBoxColumn order_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn order_date;
+        private System.Windows.Forms.Button BackButton;
     }
 }

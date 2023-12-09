@@ -21,9 +21,15 @@ namespace IS_FISU
         int amountproductint;
         public OrdersNotConfirmedByAdminWindow()
         {
+
             InitializeComponent();
+            foreach (DataGridViewColumn column in DataBaseUnwatchedOrders.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
             LoadData();
         }
+
         private void LoadData()
         {
             try
@@ -80,22 +86,28 @@ namespace IS_FISU
         }
         private void DataBaseWaitingForConfirm_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (DataBaseUnwatchedOrders.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            try {
+                if (DataBaseUnwatchedOrders.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    DataBaseUnwatchedOrders.CurrentRow.Selected = true;
+                    IDoutput.Text = DataBaseUnwatchedOrders.Rows[e.RowIndex].Cells["id"].FormattedValue.ToString();
+                    NameProductOutput.Text = DataBaseUnwatchedOrders.Rows[e.RowIndex].Cells["name_product"].FormattedValue.ToString();
+                    AmountProductChange.Text = DataBaseUnwatchedOrders.Rows[e.RowIndex].Cells["amount_product"].FormattedValue.ToString();
+                    OrderPriceOutput.Text = DataBaseUnwatchedOrders.Rows[e.RowIndex].Cells["order_price"].FormattedValue.ToString();
+                    OrderDateOutput.Text = DataBaseUnwatchedOrders.Rows[e.RowIndex].Cells["order_date"].FormattedValue.ToString();
+                    ActualPriceOutput.Text = DataBaseUnwatchedOrders.Rows[e.RowIndex].Cells["price_product"].FormattedValue.ToString();
+                    NewOrderPriceOutput.Text = DataBaseUnwatchedOrders.Rows[e.RowIndex].Cells["order_price"].FormattedValue.ToString();
+                    priceproduct = DataBaseUnwatchedOrders.Rows[e.RowIndex].Cells["price_product"].FormattedValue.ToString();
+                    StorageProductOutput.Text = DataBaseUnwatchedOrders.Rows[e.RowIndex].Cells["amount_products"].FormattedValue.ToString();
+                    string amounttest = DataBaseUnwatchedOrders.Rows[e.RowIndex].Cells["amount_products"].FormattedValue.ToString();
+                    amounttestproduct = Int32.Parse(amounttest);
+                    amountproducts = AmountProductChange.Text;
+                    amountproductint = Int32.Parse(amountproducts);
+                }
+            }
+            catch (Exception)
             {
-                DataBaseUnwatchedOrders.CurrentRow.Selected = true;
-                IDoutput.Text = DataBaseUnwatchedOrders.Rows[e.RowIndex].Cells["id"].FormattedValue.ToString();
-                NameProductOutput.Text = DataBaseUnwatchedOrders.Rows[e.RowIndex].Cells["name_product"].FormattedValue.ToString();
-                AmountProductChange.Text = DataBaseUnwatchedOrders.Rows[e.RowIndex].Cells["amount_product"].FormattedValue.ToString();
-                OrderPriceOutput.Text = DataBaseUnwatchedOrders.Rows[e.RowIndex].Cells["order_price"].FormattedValue.ToString();
-                OrderDateOutput.Text = DataBaseUnwatchedOrders.Rows[e.RowIndex].Cells["order_date"].FormattedValue.ToString();
-                ActualPriceOutput.Text = DataBaseUnwatchedOrders.Rows[e.RowIndex].Cells["price_product"].FormattedValue.ToString();
-                NewOrderPriceOutput.Text = DataBaseUnwatchedOrders.Rows[e.RowIndex].Cells["order_price"].FormattedValue.ToString();
-                priceproduct = DataBaseUnwatchedOrders.Rows[e.RowIndex].Cells["price_product"].FormattedValue.ToString();
-                StorageProductOutput.Text = DataBaseUnwatchedOrders.Rows[e.RowIndex].Cells["amount_products"].FormattedValue.ToString();
-                string amounttest = DataBaseUnwatchedOrders.Rows[e.RowIndex].Cells["amount_products"].FormattedValue.ToString();
-                amounttestproduct = Int32.Parse(amounttest);
-                amountproducts = AmountProductChange.Text;
-                amountproductint = Int32.Parse(amountproducts);
+                MessageBox.Show("Выберите одну запись, а не шапку таблицы", "");
             }
         }
         private void AmountProductChange_ValueChanged(object sender, EventArgs e)
@@ -121,24 +133,24 @@ namespace IS_FISU
                     {
                     if ((int)AmountProductChange.Value != amountproductint)
                     {
-                        MySqlConnection connection = new MySqlConnection(connectString);
-                        connection.Open();
+                        if (MessageBox.Show("Вы действительно хотите изменить заказ?", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                        {
+                            MySqlConnection connection = new MySqlConnection(connectString);
+                            connection.Open();
 
-                        string amountproduct = AmountProductChange.Text;
-                        string orderprice = NewOrderPriceOutput.Text;
-                        string id = IDoutput.Text;
-                        string ChangingOrderSQL = $"UPDATE Orders SET amount_product = '" + amountproduct + "', order_price = '" + orderprice + "'  WHERE id =" + id;
-                        MySqlCommand command = new MySqlCommand(ChangingOrderSQL, connection);
-                        command.ExecuteReader();
-                        connection.Close();
+                            string amountproduct = AmountProductChange.Text;
+                            string orderprice = NewOrderPriceOutput.Text;
+                            string id = IDoutput.Text;
+                            string ChangingOrderSQL = $"UPDATE Orders SET amount_product = '" + amountproduct + "', order_price = '" + orderprice + "'  WHERE id =" + id;
+                            MySqlCommand command = new MySqlCommand(ChangingOrderSQL, connection);
+                            command.ExecuteReader();
+                            connection.Close();
 
-                        MessageBox.Show("Заказ изменён!", "");
-                        // Очистка данных в DataGridView перед обновлением
-                        DataBaseUnwatchedOrders.DataSource = null;
-                        DataBaseUnwatchedOrders.Rows.Clear();
-                        DataBaseUnwatchedOrders.Columns.Clear();
-
-                        LoadData1();
+                            MessageBox.Show("Заказ изменён!", "");
+                            this.Hide();
+                            var myForm = new OrdersNotConfirmedByAdminWindow();
+                            myForm.Show();
+                        }
                     }
                     else
                     {
@@ -156,56 +168,29 @@ namespace IS_FISU
             }
         }
 
-
-        private void CancelOrderButton_Click(object sender, EventArgs e)
+    private void CancelOrderButton_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Вы действительно хотите отменить заказ?", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            if (IDoutput.Text.Length > 0)
             {
-                MySqlConnection connection = new MySqlConnection(connectString);
-                connection.Open();
-                string id = IDoutput.Text;
-                string DeleteOrderSQL = $"DELETE from Orders WHERE id =" + id;
-                MySqlCommand command = new MySqlCommand(DeleteOrderSQL, connection);
-                command.ExecuteReader();
-                connection.Close();
-
-                MessageBox.Show("Заказ отменён", "");
-                // Очистка данных в DataGridView перед обновлением
-                DataBaseUnwatchedOrders.DataSource = null;
-                DataBaseUnwatchedOrders.Rows.Clear();
-                DataBaseUnwatchedOrders.Columns.Clear();
-
-                LoadData1();
-            }
-        }
-        private void LoadData1()
-        {
-            using (MySqlConnection connection = new MySqlConnection(connectString))
-            {
-                string query = @"
-                        SELECT 
-                            o.id, 
-                            p.name_product,
-                            o.amount_product, 
-                            p.amount_products,
-                            p.price_product,
-                            o.order_price, 
-                            o.order_date
-                        FROM 
-                            Orders o
-                            INNER JOIN Products p ON o.id_product = p.id
-                        WHERE
-                             o.order_agreement = 0
-                        AND o.order_was_edited = 0
-                        AND o.changes_confirm = 0";
-
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection))
+                if (MessageBox.Show("Вы действительно хотите отменить заказ?", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                 {
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
+                    MySqlConnection connection = new MySqlConnection(connectString);
+                    connection.Open();
+                    string id = IDoutput.Text;
+                    string DeleteOrderSQL = $"DELETE from Orders WHERE id =" + id;
+                    MySqlCommand command = new MySqlCommand(DeleteOrderSQL, connection);
+                    command.ExecuteReader();
+                    connection.Close();
 
-                    DataBaseUnwatchedOrders.DataSource = dataTable;
+                    MessageBox.Show("Заказ отменён", "");
+                    this.Hide();
+                    var myForm = new OrdersNotConfirmedByAdminWindow();
+                    myForm.Show();
                 }
+            }
+            else
+            {
+                MessageBox.Show("Сначала выберите заказ из списка", "");
             }
         }
 
@@ -214,5 +199,13 @@ namespace IS_FISU
             var tooltip = new ToolTip(); //Создание подсказки, в которой поясняется правильность записи цены в поле
             tooltip.SetToolTip(TipToClient, "Обратите внимание, что при изменении заказа\n товар будет приобретаться по актуальной цене,\n а не той, что была"); //Вывод текста в подсказке 
         }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var myForm = new ClientOrdersWindow();
+            myForm.Show();
+        }
+      
     }
 }

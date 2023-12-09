@@ -57,26 +57,33 @@ namespace IS_FISU
 
         private void AddNewProductButton_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var myForm = new NewProductWindow();
             myForm.Show();
-            this.Hide();
         }
 
         private void DataBaseAdmin_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (DataBaseAdmin.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            try
             {
-                DataBaseAdmin.CurrentRow.Selected = true;
-                IdOutput.Text = DataBaseAdmin.Rows[e.RowIndex].Cells["id"].FormattedValue.ToString();
-                NameInputBox.Text = DataBaseAdmin.Rows[e.RowIndex].Cells["name_product"].FormattedValue.ToString();
-                PriceInput.Text = DataBaseAdmin.Rows[e.RowIndex].Cells["price_product"].FormattedValue.ToString();
-                AmountInput.Text = DataBaseAdmin.Rows[e.RowIndex].Cells["amount_products"].FormattedValue.ToString();
-                DateInput.Text = DataBaseAdmin.Rows[e.RowIndex].Cells["supply_date"].FormattedValue.ToString();
+                if (DataBaseAdmin.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    DataBaseAdmin.CurrentRow.Selected = true;
+                    IdOutput.Text = DataBaseAdmin.Rows[e.RowIndex].Cells["id"].FormattedValue.ToString();
+                    NameInputBox.Text = DataBaseAdmin.Rows[e.RowIndex].Cells["name_product"].FormattedValue.ToString();
+                    PriceInput.Text = DataBaseAdmin.Rows[e.RowIndex].Cells["price_product"].FormattedValue.ToString();
+                    AmountInput.Text = DataBaseAdmin.Rows[e.RowIndex].Cells["amount_products"].FormattedValue.ToString();
+                    DateInput.Text = DataBaseAdmin.Rows[e.RowIndex].Cells["supply_date"].FormattedValue.ToString();
 
-                nametest = NameInputBox.Text;
-                pricetest = PriceInput.Text;
-                amounttest = AmountInput.Text;
-                supplydatetest = DateInput.Text;
+                    nametest = NameInputBox.Text;
+                    pricetest = PriceInput.Text;
+                    amounttest = AmountInput.Text;
+                    supplydatetest = DateInput.Text;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Выберите одну запись, а не шапку таблицы", "");
             }
         }
 
@@ -84,54 +91,38 @@ namespace IS_FISU
         {
             if (IdOutput.Text.Length > 0)
             {
-                string id = IdOutput.Text;
-                string name = NameInputBox.Text;
-                string price = PriceInput.Text;
-                string amount = AmountInput.Text;
-                string supplydate = DateInput.Text;
-                if ((NameInputBox.Text != nametest) | (PriceInput.Text != pricetest) | (AmountInput.Text != amounttest) | (DateInput.Text != supplydatetest))
+                if (MessageBox.Show("Вы уверены что хотите изменить данные о товаре?", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                 {
-                    string connectString = "server=localhost; port=3306; username=root; password=root; database=IS_FISU";
-                    MySqlConnection connection = new MySqlConnection(connectString);
-                    connection.Open();
+                    string id = IdOutput.Text;
+                    string name = NameInputBox.Text;
+                    string price = PriceInput.Text;
+                    string amount = AmountInput.Text;
+                    string supplydate = DateInput.Text;
+                    if ((NameInputBox.Text != nametest) | (PriceInput.Text != pricetest) | (AmountInput.Text != amounttest) | (DateInput.Text != supplydatetest))
+                    {
+                        string connectString = "server=localhost; port=3306; username=root; password=root; database=IS_FISU";
+                        MySqlConnection connection = new MySqlConnection(connectString);
+                        connection.Open();
 
 
-                    string SaveChangesSQL = $"UPDATE Products SET name_product = '" + name + "', price_product = '" + price + "', amount_products = '" + amount + "', supply_date = '" + supplydate + "' WHERE id =" + id;
-                    MySqlCommand command = new MySqlCommand(SaveChangesSQL, connection);
-                    command.ExecuteReader();
-                    connection.Close();
+                        string SaveChangesSQL = $"UPDATE Products SET name_product = '" + name + "', price_product = '" + price + "', amount_products = '" + amount + "', supply_date = '" + supplydate + "' WHERE id =" + id;
+                        MySqlCommand command = new MySqlCommand(SaveChangesSQL, connection);
+                        command.ExecuteReader();
+                        connection.Close();
 
-                    MessageBox.Show("Товар успешно изменён!", "");
-                    // Очистка данных в DataGridView перед обновлением
-                    DataBaseAdmin.DataSource = null;
-                    DataBaseAdmin.Rows.Clear();
-                    DataBaseAdmin.Columns.Clear();
-
-                    LoadData1();
+                        MessageBox.Show("Товар успешно изменён!", "");
+                        this.Hide();
+                        var myForm = new StuffStorageWindow();
+                        myForm.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Вы не внесли никаких изменений в данные о товаре", "");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Вы не внесли никаких изменений в данные о товаре", "");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Сначала выберите товар из списка", "");
-            }
-        }
-        private void LoadData1()
-        {
-            string connectString = "server=localhost; port=3306; username=root; password=root; database=IS_FISU";
-            using (MySqlConnection connection = new MySqlConnection(connectString))
-            {
-                string query = "SELECT * FROM Products"; 
-
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection))
-                {
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-
-                    DataBaseAdmin.DataSource = dataTable;
+                    MessageBox.Show("Сначала выберите товар из списка", "");
                 }
             }
         }
@@ -140,22 +131,32 @@ namespace IS_FISU
         {
             if (IdOutput.Text.Length > 0)
             {
-                string connectString = "server=localhost; port=3306; username=root; password=root; database=IS_FISU";
-                MySqlConnection connection = new MySqlConnection(connectString);
-                connection.Open();
-                string id = IdOutput.Text;
-                string DeleteProductsSQL = $"DELETE from Products WHERE id =" + id;
-                MySqlCommand command = new MySqlCommand(DeleteProductsSQL, connection);
-                command.ExecuteReader();
-                connection.Close();
+                if (MessageBox.Show("Вы уверены, что хотите удалить товар?", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    try
+                    {
+                        string connectString = "server=localhost; port=3306; username=root; password=root; database=IS_FISU";
+                        MySqlConnection connection = new MySqlConnection(connectString);
+                        connection.Open();
+                        string id = IdOutput.Text;
+                        string DeleteProductsSQL = $"DELETE from Products WHERE id =" + id;
 
-                MessageBox.Show("Товар успешно удалён!", "");
-                // Очистка данных в DataGridView перед обновлением
-                DataBaseAdmin.DataSource = null;
-                DataBaseAdmin.Rows.Clear();
-                DataBaseAdmin.Columns.Clear();
+                        MySqlCommand command = new MySqlCommand(DeleteProductsSQL, connection);
+                        command.ExecuteReader();
 
-                LoadData1();
+                        connection.Close();
+
+                        MessageBox.Show("Товар успешно удалён!", "");
+                        this.Hide();
+                        var myForm = new StuffStorageWindow();
+                        myForm.Show();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Вы не можете удалить товар из базы данных так как он используется в таблице заказов!");
+                    }
+                }
+                
             }
             else
             {
@@ -168,5 +169,13 @@ namespace IS_FISU
             var tooltip = new ToolTip(); //Создание подсказки, в которой поясняется правильность записи цены в поле
             tooltip.SetToolTip(PriceStandardInfo, "Писать в поле цены товара нужно только цифры, ничего более"); //Вывод текста в подсказке 
         }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var myForm = new AdminWindow();
+            myForm.Show();
+        }
+      
     }
 }
