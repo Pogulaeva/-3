@@ -3,15 +3,12 @@ namespace IS_FISU
 {
     partial class ClientWindow
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
+        // Обязательная переменная конструктора
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        
+        // Освобождение всех используемых ресурсов
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -21,12 +18,9 @@ namespace IS_FISU
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region 
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
+        // Требуемый метод для поддержки конструктора
         private void InitializeComponent()
         {
             this.ProductsListText = new System.Windows.Forms.Label();
@@ -64,6 +58,7 @@ namespace IS_FISU
             // ClientOrderListButton
             // 
             this.ClientOrderListButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(194)))), ((int)(((byte)(237)))));
+            this.ClientOrderListButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ClientOrderListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ClientOrderListButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ClientOrderListButton.Location = new System.Drawing.Point(491, 12);
@@ -77,6 +72,7 @@ namespace IS_FISU
             // ChangeAccButton
             // 
             this.ChangeAccButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(194)))), ((int)(((byte)(237)))));
+            this.ChangeAccButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ChangeAccButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ChangeAccButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ChangeAccButton.Location = new System.Drawing.Point(598, 12);
@@ -241,6 +237,7 @@ namespace IS_FISU
             // MakeOrderButton
             // 
             this.MakeOrderButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(194)))), ((int)(((byte)(237)))));
+            this.MakeOrderButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MakeOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MakeOrderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MakeOrderButton.Location = new System.Drawing.Point(598, 358);

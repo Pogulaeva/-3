@@ -38,8 +38,6 @@ namespace IS_FISU
         private void ChangeAccButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var myForm = new AccountChooseWindow();
-            myForm.Show();
         }
 
         private void MakeACopyMenu_Click(object sender, EventArgs e)
@@ -64,7 +62,7 @@ namespace IS_FISU
                         ZipFile.CreateFromDirectory(sourceDirectory, saveFileDialog.FileName);
 
                         // Создание резервной копии базы данных
-                        BackupDatabase();
+                        //BackupDatabase();
 
                         MessageBox.Show("Резервное копирование завершено успешно.", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -77,7 +75,7 @@ namespace IS_FISU
             }
         }
 
-        private void BackupDatabase()
+        /*private void BackupDatabase()
         {
 
             // Определение пути для сохранения резервной копии
@@ -109,6 +107,6 @@ namespace IS_FISU
             }
 
             Console.ReadLine();
-        }
+        }*/
     }
 }

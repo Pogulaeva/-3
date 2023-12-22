@@ -3,15 +3,12 @@ namespace IS_FISU
 {
     partial class AdminWindow
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
+        // Обязательная переменная конструктора
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+
+        // Освобождение всех используемых ресурсов
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -21,12 +18,9 @@ namespace IS_FISU
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region 
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
+        // Требуемый метод для поддержки конструктора
         private void InitializeComponent()
         {
             this.ToStuffListButton = new System.Windows.Forms.Button();
@@ -40,6 +34,7 @@ namespace IS_FISU
             // ToStuffListButton
             // 
             this.ToStuffListButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
+            this.ToStuffListButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ToStuffListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ToStuffListButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ToStuffListButton.Location = new System.Drawing.Point(31, 27);
@@ -53,6 +48,7 @@ namespace IS_FISU
             // ToOrderListButton
             // 
             this.ToOrderListButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
+            this.ToOrderListButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ToOrderListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ToOrderListButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ToOrderListButton.Location = new System.Drawing.Point(31, 106);
@@ -66,6 +62,7 @@ namespace IS_FISU
             // ChangeAccButton
             // 
             this.ChangeAccButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
+            this.ChangeAccButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ChangeAccButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ChangeAccButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ChangeAccButton.Location = new System.Drawing.Point(380, 185);
@@ -88,6 +85,7 @@ namespace IS_FISU
             // 
             // MakeACopyMenu
             // 
+            this.MakeACopyMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
             this.MakeACopyMenu.Name = "MakeACopyMenu";
             this.MakeACopyMenu.Size = new System.Drawing.Size(152, 20);
             this.MakeACopyMenu.Text = "Резервное копирование";

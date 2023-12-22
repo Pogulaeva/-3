@@ -3,15 +3,14 @@ namespace IS_FISU
 {
     partial class OrderListWindow
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
+
+        // Обязательная переменная конструктора
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
+
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+
+        // Освобождение всех используемых ресурсов
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -21,12 +20,9 @@ namespace IS_FISU
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region 
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
+        // Требуемый метод для поддержки конструктора
         private void InitializeComponent()
         {
             this.OrderListText = new System.Windows.Forms.Label();
@@ -53,8 +49,11 @@ namespace IS_FISU
             this.ApproveOrderButton = new System.Windows.Forms.Button();
             this.OrderApproveCheckBox = new System.Windows.Forms.CheckBox();
             this.BackButton = new System.Windows.Forms.Button();
+            this.AdditionalFuncMenu = new System.Windows.Forms.MenuStrip();
+            this.MakeACopyMenu = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.DataBaseUnconfirmedOrders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountProductChange)).BeginInit();
+            this.AdditionalFuncMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // OrderListText
@@ -240,6 +239,7 @@ namespace IS_FISU
             // DeleteOrderButton
             // 
             this.DeleteOrderButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
+            this.DeleteOrderButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DeleteOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteOrderButton.Location = new System.Drawing.Point(957, 376);
             this.DeleteOrderButton.Name = "DeleteOrderButton";
@@ -252,6 +252,7 @@ namespace IS_FISU
             // ConfirmChangesButton
             // 
             this.ConfirmChangesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
+            this.ConfirmChangesButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ConfirmChangesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ConfirmChangesButton.Location = new System.Drawing.Point(848, 376);
             this.ConfirmChangesButton.Name = "ConfirmChangesButton";
@@ -264,6 +265,7 @@ namespace IS_FISU
             // ApproveOrderButton
             // 
             this.ApproveOrderButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
+            this.ApproveOrderButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ApproveOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ApproveOrderButton.Location = new System.Drawing.Point(740, 376);
             this.ApproveOrderButton.Name = "ApproveOrderButton";
@@ -276,6 +278,7 @@ namespace IS_FISU
             // OrderApproveCheckBox
             // 
             this.OrderApproveCheckBox.AutoSize = true;
+            this.OrderApproveCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.OrderApproveCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.OrderApproveCheckBox.Location = new System.Drawing.Point(740, 320);
             this.OrderApproveCheckBox.Name = "OrderApproveCheckBox";
@@ -287,6 +290,7 @@ namespace IS_FISU
             // BackButton
             // 
             this.BackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
+            this.BackButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BackButton.Location = new System.Drawing.Point(977, 25);
             this.BackButton.Name = "BackButton";
@@ -295,6 +299,24 @@ namespace IS_FISU
             this.BackButton.Text = "Вернуться к меню";
             this.BackButton.UseVisualStyleBackColor = false;
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            // 
+            // AdditionalFuncMenu
+            // 
+            this.AdditionalFuncMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MakeACopyMenu});
+            this.AdditionalFuncMenu.Location = new System.Drawing.Point(0, 0);
+            this.AdditionalFuncMenu.Name = "AdditionalFuncMenu";
+            this.AdditionalFuncMenu.Size = new System.Drawing.Size(1078, 24);
+            this.AdditionalFuncMenu.TabIndex = 52;
+            this.AdditionalFuncMenu.Text = "menuStrip1";
+            // 
+            // MakeACopyMenu
+            // 
+            this.MakeACopyMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
+            this.MakeACopyMenu.Name = "MakeACopyMenu";
+            this.MakeACopyMenu.Size = new System.Drawing.Size(152, 20);
+            this.MakeACopyMenu.Text = "Резервное копирование";
+            this.MakeACopyMenu.Click += new System.EventHandler(this.MakeACopyMenu_Click);
             // 
             // OrderListWindow
             // 
@@ -319,12 +341,16 @@ namespace IS_FISU
             this.Controls.Add(this.IDtext);
             this.Controls.Add(this.DataBaseUnconfirmedOrders);
             this.Controls.Add(this.OrderListText);
+            this.Controls.Add(this.AdditionalFuncMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MainMenuStrip = this.AdditionalFuncMenu;
             this.Name = "OrderListWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Система учёта продаж интернет-магазина";
             ((System.ComponentModel.ISupportInitialize)(this.DataBaseUnconfirmedOrders)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountProductChange)).EndInit();
+            this.AdditionalFuncMenu.ResumeLayout(false);
+            this.AdditionalFuncMenu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -356,5 +382,7 @@ namespace IS_FISU
         private System.Windows.Forms.DataGridViewTextBoxColumn order_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn order_date;
         private System.Windows.Forms.Button BackButton;
+        private System.Windows.Forms.MenuStrip AdditionalFuncMenu;
+        private System.Windows.Forms.ToolStripMenuItem MakeACopyMenu;
     }
 }

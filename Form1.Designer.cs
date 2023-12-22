@@ -3,15 +3,12 @@ namespace IS_FISU
 {
     partial class AccountChooseWindow
     {
-        /// <summary>
-        /// Обязательная переменная конструктора.
-        /// </summary>
+        // Обязательная переменная конструктора
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Освободить все используемые ресурсы.
-        /// </summary>
         /// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
+        
+        // Освобождение всех используемых ресурсов
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -21,12 +18,9 @@ namespace IS_FISU
             base.Dispose(disposing);
         }
 
-        #region Код, автоматически созданный конструктором форм Windows
+        #region 
 
-        /// <summary>
-        /// Требуемый метод для поддержки конструктора — не изменяйте 
-        /// содержимое этого метода с помощью редактора кода.
-        /// </summary>
+        // Требуемый метод для поддержки конструктора
         private void InitializeComponent()
         {
             this.ClientButton = new System.Windows.Forms.Button();
@@ -36,7 +30,7 @@ namespace IS_FISU
             // 
             // ClientButton
             // 
-            this.ClientButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(194)))), ((int)(((byte)(250)))));
+            this.ClientButton.BackColor = System.Drawing.Color.FromArgb(140, 194, 250);
             this.ClientButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ClientButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ClientButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -50,7 +44,7 @@ namespace IS_FISU
             // 
             // AdminButton
             // 
-            this.AdminButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.AdminButton.BackColor = System.Drawing.Color.FromArgb(192, 192, 255);
             this.AdminButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AdminButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AdminButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));

@@ -3,15 +3,13 @@ namespace IS_FISU
 {
     partial class ClientOrdersWindow
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
+
+        // Обязательная переменная конструктора
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+
+        // Освобождение всех используемых ресурсов
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -21,12 +19,9 @@ namespace IS_FISU
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region 
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
+        // Требуемый метод для поддержки конструктора
         private void InitializeComponent()
         {
             this.OrdersNotConfirmByClientButton = new System.Windows.Forms.Button();
@@ -38,6 +33,7 @@ namespace IS_FISU
             // OrdersNotConfirmByClientButton
             // 
             this.OrdersNotConfirmByClientButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(194)))), ((int)(((byte)(237)))));
+            this.OrdersNotConfirmByClientButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.OrdersNotConfirmByClientButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OrdersNotConfirmByClientButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.OrdersNotConfirmByClientButton.Location = new System.Drawing.Point(12, 25);
@@ -52,6 +48,7 @@ namespace IS_FISU
             // OrdersNotConfirmedByAdminButton
             // 
             this.OrdersNotConfirmedByAdminButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(194)))), ((int)(((byte)(237)))));
+            this.OrdersNotConfirmedByAdminButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.OrdersNotConfirmedByAdminButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OrdersNotConfirmedByAdminButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.OrdersNotConfirmedByAdminButton.Location = new System.Drawing.Point(12, 96);
@@ -66,6 +63,7 @@ namespace IS_FISU
             // ActiveOrdersButton
             // 
             this.ActiveOrdersButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(194)))), ((int)(((byte)(237)))));
+            this.ActiveOrdersButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ActiveOrdersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ActiveOrdersButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ActiveOrdersButton.Location = new System.Drawing.Point(12, 167);
@@ -80,6 +78,7 @@ namespace IS_FISU
             // BackButton
             // 
             this.BackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(194)))), ((int)(((byte)(237)))));
+            this.BackButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BackButton.Location = new System.Drawing.Point(237, 252);

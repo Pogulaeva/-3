@@ -3,15 +3,13 @@ namespace IS_FISU
 {
     partial class StuffStorageWindow
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
+
+        // Обязательная переменная конструктора
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+
+        // Освобождение всех используемых ресурсов
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -21,15 +19,12 @@ namespace IS_FISU
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region 
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
+        // Требуемый метод для поддержки конструктора
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.AddNewProductButton = new System.Windows.Forms.Button();
             this.DataBaseAdmin = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,14 +49,18 @@ namespace IS_FISU
             this.IdOutput = new System.Windows.Forms.Label();
             this.DeleteProductButton = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
+            this.AdditionalFuncMenu = new System.Windows.Forms.MenuStrip();
+            this.MakeACopyMenu = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.DataBaseAdmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PriceInput)).BeginInit();
+            this.AdditionalFuncMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // AddNewProductButton
             // 
             this.AddNewProductButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
+            this.AddNewProductButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AddNewProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddNewProductButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AddNewProductButton.Location = new System.Drawing.Point(168, 30);
@@ -100,10 +99,10 @@ namespace IS_FISU
             // 
             // name_product
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(196)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.name_product.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(196)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.name_product.DefaultCellStyle = dataGridViewCellStyle2;
             this.name_product.HeaderText = "Наименование товара";
             this.name_product.MinimumWidth = 15;
             this.name_product.Name = "name_product";
@@ -135,6 +134,7 @@ namespace IS_FISU
             // SaveChangesButton
             // 
             this.SaveChangesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
+            this.SaveChangesButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SaveChangesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveChangesButton.Location = new System.Drawing.Point(917, 387);
             this.SaveChangesButton.Name = "SaveChangesButton";
@@ -147,6 +147,7 @@ namespace IS_FISU
             // PriceStandardInfo
             // 
             this.PriceStandardInfo.AutoSize = true;
+            this.PriceStandardInfo.Cursor = System.Windows.Forms.Cursors.Help;
             this.PriceStandardInfo.Location = new System.Drawing.Point(776, 265);
             this.PriceStandardInfo.Name = "PriceStandardInfo";
             this.PriceStandardInfo.Size = new System.Drawing.Size(21, 13);
@@ -289,6 +290,7 @@ namespace IS_FISU
             // DeleteProductButton
             // 
             this.DeleteProductButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
+            this.DeleteProductButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DeleteProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteProductButton.Location = new System.Drawing.Point(675, 387);
             this.DeleteProductButton.Name = "DeleteProductButton";
@@ -301,6 +303,7 @@ namespace IS_FISU
             // BackButton
             // 
             this.BackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
+            this.BackButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BackButton.Location = new System.Drawing.Point(971, 30);
             this.BackButton.Name = "BackButton";
@@ -309,6 +312,24 @@ namespace IS_FISU
             this.BackButton.Text = "Вернуться к меню";
             this.BackButton.UseVisualStyleBackColor = false;
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            // 
+            // AdditionalFuncMenu
+            // 
+            this.AdditionalFuncMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MakeACopyMenu});
+            this.AdditionalFuncMenu.Location = new System.Drawing.Point(0, 0);
+            this.AdditionalFuncMenu.Name = "AdditionalFuncMenu";
+            this.AdditionalFuncMenu.Size = new System.Drawing.Size(1072, 24);
+            this.AdditionalFuncMenu.TabIndex = 51;
+            this.AdditionalFuncMenu.Text = "menuStrip1";
+            // 
+            // MakeACopyMenu
+            // 
+            this.MakeACopyMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
+            this.MakeACopyMenu.Name = "MakeACopyMenu";
+            this.MakeACopyMenu.Size = new System.Drawing.Size(152, 20);
+            this.MakeACopyMenu.Text = "Резервное копирование";
+            this.MakeACopyMenu.Click += new System.EventHandler(this.MakeACopyMenu_Click);
             // 
             // StuffStorageWindow
             // 
@@ -336,7 +357,9 @@ namespace IS_FISU
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DataBaseAdmin);
             this.Controls.Add(this.AddNewProductButton);
+            this.Controls.Add(this.AdditionalFuncMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MainMenuStrip = this.AdditionalFuncMenu;
             this.MaximizeBox = false;
             this.Name = "StuffStorageWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -344,6 +367,8 @@ namespace IS_FISU
             ((System.ComponentModel.ISupportInitialize)(this.DataBaseAdmin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AmountInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PriceInput)).EndInit();
+            this.AdditionalFuncMenu.ResumeLayout(false);
+            this.AdditionalFuncMenu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -375,5 +400,7 @@ namespace IS_FISU
         private System.Windows.Forms.DataGridViewTextBoxColumn amount_products;
         private System.Windows.Forms.DataGridViewTextBoxColumn supply_date;
         private System.Windows.Forms.Button BackButton;
+        private System.Windows.Forms.MenuStrip AdditionalFuncMenu;
+        private System.Windows.Forms.ToolStripMenuItem MakeACopyMenu;
     }
 }

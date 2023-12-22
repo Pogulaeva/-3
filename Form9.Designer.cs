@@ -3,15 +3,12 @@ namespace IS_FISU
 {
     partial class CommentForDeletingWindow
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
+        // Обязательная переменная конструктора
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+
+        // Освобождение всех используемых ресурсов
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -23,10 +20,7 @@ namespace IS_FISU
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
+        // Требуемый метод для поддержки конструктора
         private void InitializeComponent()
         {
             this.CommentBox = new System.Windows.Forms.RichTextBox();
@@ -56,6 +50,7 @@ namespace IS_FISU
             // SendMessageButton
             // 
             this.SendMessageButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
+            this.SendMessageButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SendMessageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SendMessageButton.Location = new System.Drawing.Point(267, 237);
             this.SendMessageButton.Name = "SendMessageButton";

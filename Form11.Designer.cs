@@ -3,15 +3,12 @@ namespace IS_FISU
 {
     partial class OrdersNotConfirmByClientWindow
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
+        // Обязательная переменная конструктора
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+
+        // Освобождение всех используемых ресурсов
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -21,12 +18,9 @@ namespace IS_FISU
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
+        // Требуемый метод для поддержки конструктора
         private void InitializeComponent()
         {
             this.TipText = new System.Windows.Forms.Label();
@@ -216,6 +210,7 @@ namespace IS_FISU
             // ConfirmChangesButton
             // 
             this.ConfirmChangesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(194)))), ((int)(((byte)(237)))));
+            this.ConfirmChangesButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ConfirmChangesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ConfirmChangesButton.Location = new System.Drawing.Point(692, 336);
             this.ConfirmChangesButton.Name = "ConfirmChangesButton";
@@ -228,6 +223,7 @@ namespace IS_FISU
             // CancelOrderButton
             // 
             this.CancelOrderButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(194)))), ((int)(((byte)(237)))));
+            this.CancelOrderButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CancelOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelOrderButton.Location = new System.Drawing.Point(829, 336);
             this.CancelOrderButton.Name = "CancelOrderButton";
@@ -240,6 +236,7 @@ namespace IS_FISU
             // BackButton
             // 
             this.BackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(194)))), ((int)(((byte)(237)))));
+            this.BackButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BackButton.Location = new System.Drawing.Point(829, 15);
             this.BackButton.Name = "BackButton";
