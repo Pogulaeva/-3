@@ -99,6 +99,7 @@ namespace IS_FISU
             this.Controls.Add(this.OrdersNotConfirmedByAdminButton);
             this.Controls.Add(this.OrdersNotConfirmByClientButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "ClientOrdersWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Система учёта продаж интернет-магазина";

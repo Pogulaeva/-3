@@ -119,6 +119,7 @@ namespace IS_FISU
             this.Controls.Add(this.DataBaseActiveOrders);
             this.Controls.Add(this.TipText);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "ActiveOrdersWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Система учёта продаж интернет-магазина";

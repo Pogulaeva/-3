@@ -258,6 +258,7 @@ namespace IS_FISU
             this.Controls.Add(this.AdditionalFuncMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.AdditionalFuncMenu;
+            this.MaximizeBox = false;
             this.Name = "NewProductWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Система учёта продаж интернет-магазина";
