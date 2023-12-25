@@ -14,6 +14,7 @@ using System.Diagnostics;
 
 namespace IS_FISU
 {
+    //Создание формы
     public partial class OrderListWindow : Form
     {
 
@@ -27,6 +28,7 @@ namespace IS_FISU
             LoadData(); // Вызов метода для загрузки данных в DataGridView при загрузке формы
         }
 
+        //Загрузка данных из БД в элемент формы DataBaseUnconfirmedOrders
         private void LoadData()
         {
             try
@@ -57,7 +59,7 @@ namespace IS_FISU
 
                     if (reader.HasRows)
                     {
-                        // Загрузка данных в DataGridView
+                        // Загрузка данных в DataBaseUnconfirmedOrders
                         while (reader.Read())
                         {
                             DataBaseUnconfirmedOrders.Rows.Add(
@@ -83,10 +85,12 @@ namespace IS_FISU
             }
         }
 
+        //Функция переноса выбранных из DataBaseUnconfirmedOrders данных в удобный просмотр, подтверждение и редактирование информации о совершённых клиентом заказах
         private void DataBaseUnconfirmedOrders_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
+                //Загрузка данных каждой ячейки из выбранной строки в элементы для редактирования
                 if (DataBaseUnconfirmedOrders.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
                 {
                     DataBaseUnconfirmedOrders.CurrentRow.Selected = true;
@@ -107,6 +111,8 @@ namespace IS_FISU
                 MessageBox.Show("Выберите одну запись, а не шапку таблицы", "");
             }
         }
+
+        //Функция проверки в случае того, если администратор вдруг захочет поменять значение в ChangeAmountBox, не выбрав заказ клиента из списка
         private void ChangeAmountBox_ValueChanged(object sender, EventArgs e)
         {
             if (IDoutput.Text.Length > 0)
@@ -118,9 +124,11 @@ namespace IS_FISU
                 MessageBox.Show("Сначала выберите заказ из списка", "");
             }
         }
+
+        //Функция подсчёта итоговой суммы заказа(выполняется, если совершены изменения в заказе)
         private void MakeOfFinalPrice()
         {
-            // Обновление текста в Label при изменении значения в NumericUpDown
+            // Обновление текста в OrderPriceOutput при изменении значения в AmountProductChange
             int amount = (int)AmountProductChange.Value;
             int price = Int32.Parse(priceproduct);
             int finalprice = amount * price;
@@ -128,15 +136,16 @@ namespace IS_FISU
             OrderPriceOutput.Text = changingprice;
         }
 
-
+        //Функция подтверждения заказа клиента
         private void ApproveOrderButton_Click(object sender, EventArgs e)
         {
-            if (IDoutput.Text.Length > 0)
+            if (IDoutput.Text.Length > 0) //Проверка выбранности заказа из списка
             {
-                if (OrderApproveCheckBox.Checked)
+                if (OrderApproveCheckBox.Checked) //Проверка установленной галочки в OrderApproveCheckBox
                 {
-                    if ((int)AmountProductChange.Value == amounttestproduct)
+                    if ((int)AmountProductChange.Value == amounttestproduct) //Проверка на то, не изменена ли информация о заказе
                     {
+                        //Отправка информации о заказе в БД
                         MySqlConnection connection = new MySqlConnection(connectString);
                         connection.Open();
 
@@ -148,6 +157,8 @@ namespace IS_FISU
                         connection.Close();
 
                         MessageBox.Show("Заказ подтверждён!", "");
+
+                        //Обновление всех данных в DataBaseUnconfirmedOrders
                         this.Hide();
                         var myForm = new OrderListWindow();
                         myForm.Show();
@@ -167,25 +178,26 @@ namespace IS_FISU
                 MessageBox.Show("Сначала выберите заказ из списка", "");
             }
         }
-
+        //Функция изменения информации о заказе администратором
         private void ConfirmChangesButton_Click(object sender, EventArgs e)
         {
-            if (IDoutput.Text.Length > 0)
+            if (IDoutput.Text.Length > 0) //Проверка выбранности заказа из списка
             {
-                if ((int)AmountProductChange.Value != amounttestproduct)
+                if ((int)AmountProductChange.Value != amounttestproduct) //Проверка на внесённые изменения в заказ
                 {
-                    if ((int)AmountProductChange.Value > 0)
+                    if ((int)AmountProductChange.Value > 0) //Проверка указанного кол-ва товара(не должно быть меньше 1)
                     {
-                        if ((int)AmountProductChange.Value <= amounttestproduct)
+                        if ((int)AmountProductChange.Value <= amounttestproduct) //Проверка указанного кол-ва товара(не должно быть больше, чем есть на складе)
                         {
-                            if (OrderApproveCheckBox.Checked)
+                            if (OrderApproveCheckBox.Checked) //Проверка на непроставленность галочки в OrderApproveCheckBox
                             {
                                 MessageBox.Show("При внесении изменений в заказ нельзя ставить галочку рядом с надписью «подтвердить заказ»", "");
                             }
                             else
                             {
-                                if (MessageBox.Show("Изменить данные о заказе?", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                                if (MessageBox.Show("Изменить данные о заказе?", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes) //Проверка возможного случайного нажатия администратором кнопки
                                 {
+                                    //Отправка информации о заказе в БД
                                     MySqlConnection connection = new MySqlConnection(connectString);
                                     connection.Open();
 
@@ -198,6 +210,8 @@ namespace IS_FISU
                                     connection.Close();
 
                                     MessageBox.Show("Заказ успешно изменён!", "");
+
+                                    //Обновление всех данных в DataBaseUnconfirmedOrders
                                     this.Hide();
                                     var myForm = new OrderListWindow();
                                     myForm.Show();
@@ -225,12 +239,14 @@ namespace IS_FISU
             }
         }
 
+        //Функция удаления заказа администратором
         private void DeleteOrderButton_Click(object sender, EventArgs e)
         {
-            if (IDoutput.Text.Length > 0)
+            if (IDoutput.Text.Length > 0) //Проверка выбранности заказа из списка
             {
-                if (MessageBox.Show("Вы действительно хотите отменить заказ клиента? (Если вы нажмёте «да», запись о заказе автоматически удалится)", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                if (MessageBox.Show("Вы действительно хотите отменить заказ клиента? (Если вы нажмёте «да», запись о заказе автоматически удалится)", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes) //Проверка возможного случайного нажатия администратором кнопки
                 {
+                    //Удаление информации о заказе в БД
                     MySqlConnection connection = new MySqlConnection(connectString);
                     connection.Open();
                     string id = IDoutput.Text;
@@ -240,6 +256,8 @@ namespace IS_FISU
                     connection.Close();
 
                     MessageBox.Show("Заказ отменён. Напишите причину, по которой отменили заказ", "");
+
+                    //Открытие окна для написания приничины удаления заказа
                     var myForm = new CommentForDeletingWindow();
                     myForm.Show();
                     this.Hide();
@@ -251,6 +269,7 @@ namespace IS_FISU
             }
         }
 
+        //Функция открытия окна ChooseOrderListWindow
         private void BackButton_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -258,6 +277,7 @@ namespace IS_FISU
             myForm.Show();
         }
 
+        //Функция создания резервной копии проекта и БД
         private void MakeACopyMenu_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Вы хотите сделать резервную копию информационной системы на компьютере?", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
@@ -272,7 +292,7 @@ namespace IS_FISU
                 {
                     try
                     {
-                        // Путь к папке Pogulaeva
+                        // Путь к папке, откуда будут браться файлы для копирования
                         string sourceDirectory = @"C:\\Users\\delex\\source\\repos\\Pogulaeva\\-3";
 
 

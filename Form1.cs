@@ -11,6 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace IS_FISU
 {
+    //Создание формы
     public partial class AccountChooseWindow : Form
     {
 
@@ -21,12 +22,14 @@ namespace IS_FISU
             InitializeComponent();
         }
 
+        //Функция открытия окна ClientWindow
         private void ClientButton_Click(object sender, EventArgs e)
         {
             var myForm = new ClientWindow();
             myForm.Show();
         }
 
+        //Функция открытия окна AdminWindow
         private void AdminButton_Click(object sender, EventArgs e)
         {
             var myForm = new AdminWindow();

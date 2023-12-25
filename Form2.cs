@@ -11,6 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace IS_FISU
 {
+    //Создание формы
     public partial class ClientWindow : Form
     {
 
@@ -19,13 +20,13 @@ namespace IS_FISU
         private DateTime orderdate;
         int amounttestproduct;
 
-
         public ClientWindow()
         {
             InitializeComponent();
             LoadData();
         }
 
+        //Функция открытия окна ClientOrdersWindow
         private void ClientOrderListButton_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -33,12 +34,13 @@ namespace IS_FISU
             myForm.Show();
         }
 
+        //Функция возврата к выбору аккаунта
         private void ChangeAccButton_Click(object sender, EventArgs e)
         {
             this.Hide();
         }
 
-
+        //Загрузка данных из БД в элемент формы DataBaseClient
         private void LoadData()
         {
             string connectString = "server=localhost; port=3306; username=root; password=root; database=IS_FISU";
@@ -66,10 +68,12 @@ namespace IS_FISU
                 DataBaseClient.Rows.Add(s);
         }
 
+        //Функция переноса выбранных из DataBaseClient данных в удобный просмотр и редактирование заказа
         private void DataBaseClient_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
+                //Загрузка данных каждой ячейки из выбранной строки в элементы для редактирования
                 if (DataBaseClient.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
                 {
                     DataBaseClient.CurrentRow.Selected = true;
@@ -87,6 +91,8 @@ namespace IS_FISU
                 MessageBox.Show("Выберите одну запись, а не шапку таблицы", "");
             }
         }
+
+        //Функция проверки в случае того, если клиент вдруг захочет поменять значение в ChangeAmountBox, не выбрав товар
         private void ChangeAmountBox_ValueChanged(object sender, EventArgs e)
         {
             if (ID != null)
@@ -98,28 +104,29 @@ namespace IS_FISU
                 MessageBox.Show("Сначала выберите товар из списка", "");
             }
         }
-
+        //Функция подсчёта итоговой суммы заказа
         private void MakeOfFinalPrice()
         {
-            // Обновление текста в Label при изменении значения в NumericUpDown
+            // Обновление текста в ForPaymentOutput при изменении значения в ChangeAmountBox
             int amount = (int)ChangeAmountBox.Value;
             int price = Int32.Parse(PriceOutput.Text);
             int finalprice = amount * price;
             String changingprice = finalprice.ToString();
             ForPaymentOutput.Text = changingprice;
         }
-
+        //Функция формирования заказа и запись в БД
         private void MakeOrderButton_Click(object sender, EventArgs e)
         {
-            if (ID != null)
+            if (ID != null) //Проверка выбранности товара из списка
             {
-                if (((int)ChangeAmountBox.Value > 0) && ((int)ChangeAmountBox.Value <= amounttestproduct))
+                if (((int)ChangeAmountBox.Value > 0) && ((int)ChangeAmountBox.Value <= amounttestproduct)) //Проверка указанного кол-ва товара(не должно быть меньше 1 и больше, чем есть на складе)
                 {
-                    if (MessageBox.Show("Сделать заказ?", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                    if (MessageBox.Show("Сделать заказ?", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes) //Проверка возможного случайного нажатия клиентом кнопки
                     {
                         // Запись текущей даты и времени при нажатии на кнопку
                         orderdate = DateTime.Now;
 
+                        //Отправка информации о заказе в БД
                         string connectString = "server=localhost; port=3306; username=root; password=root; database=IS_FISU";
                         MySqlConnection connection = new MySqlConnection(connectString);
                         connection.Open();

@@ -1,19 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using System.IO;
 using System.IO.Compression;
-using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace IS_FISU
 {
+    //Создание формы
     public partial class StuffStorageWindow : Form
     {
 
@@ -31,6 +23,7 @@ namespace IS_FISU
             LoadData();
         }
 
+        //Загрузка данных из БД в элемент формы DataBaseAdmin
         private void LoadData()
         {
             string connectString = "server=localhost; port=3306; username=root; password=root; database=IS_FISU";
@@ -41,7 +34,7 @@ namespace IS_FISU
             MySqlDataReader reader = command.ExecuteReader();
             List<string[]> data = new List<string[]>();
 
-            while(reader.Read())
+            while (reader.Read())
             {
                 data.Add(new string[5]);
 
@@ -57,7 +50,7 @@ namespace IS_FISU
             foreach (string[] s in data)
                 DataBaseAdmin.Rows.Add(s);
         }
-
+        //Функция открытия окна NewProductWindow
         private void AddNewProductButton_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -65,10 +58,12 @@ namespace IS_FISU
             myForm.Show();
         }
 
+        //Функция переноса выбранных из DataBaseAdmin данных в удобный просмотр и редактирование информации о товарах
         private void DataBaseAdmin_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
+                //Загрузка данных каждой ячейки из выбранной строки в элементы для редактирования
                 if (DataBaseAdmin.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
                 {
                     DataBaseAdmin.CurrentRow.Selected = true;
@@ -90,19 +85,21 @@ namespace IS_FISU
             }
         }
 
+        //Функция сохранения изменений в информации о товаре
         private void SaveChangesButton_Click(object sender, EventArgs e)
         {
-            if (IdOutput.Text.Length > 0)
+            if (IdOutput.Text.Length > 0) //Проверка выбранности товара из списка
             {
-                if (MessageBox.Show("Вы уверены что хотите изменить данные о товаре?", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                if (MessageBox.Show("Вы уверены что хотите изменить данные о товаре?", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes) //Проверка возможного случайного нажатия клиентом кнопки
                 {
                     string id = IdOutput.Text;
                     string name = NameInputBox.Text;
                     string price = PriceInput.Text;
                     string amount = AmountInput.Text;
                     string supplydate = DateInput.Text;
-                    if ((NameInputBox.Text != nametest) | (PriceInput.Text != pricetest) | (AmountInput.Text != amounttest) | (DateInput.Text != supplydatetest))
+                    if ((NameInputBox.Text != nametest) | (PriceInput.Text != pricetest) | (AmountInput.Text != amounttest) | (DateInput.Text != supplydatetest)) //Проверка того, произведены ли были вообще изменения
                     {
+                        //Отправка информации о товаре в БД
                         string connectString = "server=localhost; port=3306; username=root; password=root; database=IS_FISU";
                         MySqlConnection connection = new MySqlConnection(connectString);
                         connection.Open();
@@ -114,6 +111,8 @@ namespace IS_FISU
                         connection.Close();
 
                         MessageBox.Show("Товар успешно изменён!", "");
+
+                        //Обновление всех данных в DataBaseAdmin
                         this.Hide();
                         var myForm = new StuffStorageWindow();
                         myForm.Show();
@@ -130,14 +129,16 @@ namespace IS_FISU
             }
         }
 
+        //Функция удаления товара
         private void DeleteProductButton_Click(object sender, EventArgs e)
         {
-            if (IdOutput.Text.Length > 0)
+            if (IdOutput.Text.Length > 0) //Проверка выбранности товара из списка
             {
-                if (MessageBox.Show("Вы уверены, что хотите удалить товар?", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                if (MessageBox.Show("Вы уверены, что хотите удалить товар?", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes) //Проверка возможного случайного нажатия клиентом кнопки
                 {
                     try
                     {
+                        //Удаление информации о товаре в БД
                         string connectString = "server=localhost; port=3306; username=root; password=root; database=IS_FISU";
                         MySqlConnection connection = new MySqlConnection(connectString);
                         connection.Open();
@@ -150,6 +151,8 @@ namespace IS_FISU
                         connection.Close();
 
                         MessageBox.Show("Товар успешно удалён!", "");
+
+                        //Обновление всех данных в DataBaseAdmin
                         this.Hide();
                         var myForm = new StuffStorageWindow();
                         myForm.Show();
@@ -159,7 +162,7 @@ namespace IS_FISU
                         MessageBox.Show("Вы не можете удалить товар из базы данных так как он используется в таблице заказов!");
                     }
                 }
-                
+
             }
             else
             {
@@ -167,12 +170,14 @@ namespace IS_FISU
             }
         }
 
+        //Функция отображения подсказки при записи цены
         private void PriceStandardInfo_MouseEnter(object sender, EventArgs e)
         {
             var tooltip = new ToolTip(); //Создание подсказки, в которой поясняется правильность записи цены в поле
             tooltip.SetToolTip(PriceStandardInfo, "Писать в поле цены товара нужно только цифры, ничего более"); //Вывод текста в подсказке 
         }
 
+        //Функция открития окна AdminWindow
         private void BackButton_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -180,9 +185,10 @@ namespace IS_FISU
             myForm.Show();
         }
 
+        //Функция создания резервной копии проекта и БД
         private void MakeACopyMenu_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Вы хотите сделать резервную копию информационной системы на компьютере?", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            if (MessageBox.Show("Вы хотите сделать резервную копию информационной системы на компьютере?", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes) //Проверка возможного случайного нажатия администратором кнопки
             {
                 // Открытие диалога сохранения файла
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -194,7 +200,7 @@ namespace IS_FISU
                 {
                     try
                     {
-                        // Путь к папке Pogulaeva
+                        // Путь к папке, откуда будут браться файлы для копирования
                         string sourceDirectory = @"C:\\Users\\delex\\source\\repos\\Pogulaeva\\-3";
 
 

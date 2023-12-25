@@ -8,15 +8,13 @@ namespace IS_FISU
 {
     static class Program
     {
-        /// <summary>
         /// Главная точка входа для приложения.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
+            Application.EnableVisualStyles(); //Создание визуального стиля приложения
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AccountChooseWindow());
+            Application.Run(new AccountChooseWindow()); //запуск приложения и обработка сообщений
         }
     }
 }

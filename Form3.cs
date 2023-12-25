@@ -14,6 +14,7 @@ using System.Diagnostics;
 
 namespace IS_FISU
 {
+    //Создание формы
     public partial class AdminWindow : Form
     {
         public AdminWindow()
@@ -21,6 +22,7 @@ namespace IS_FISU
             InitializeComponent();
         }
 
+        //Функция открытия окна StuffStorageWindow
         private void ToStuffListButton_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -28,6 +30,7 @@ namespace IS_FISU
             myForm.Show();
         }
 
+        //Функция открытия окна ChooseOrderListWindow
         private void ToOrderListButton_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -35,14 +38,16 @@ namespace IS_FISU
             myForm.Show();
         }
 
+        //Функция смены аккаунта
         private void ChangeAccButton_Click(object sender, EventArgs e)
         {
             this.Hide();
         }
 
+        //Функция создания резервной копии проекта и БД
         private void MakeACopyMenu_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Вы хотите сделать резервную копию информационной системы на компьютере?", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            if (MessageBox.Show("Вы хотите сделать резервную копию информационной системы на компьютере?", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes) //Проверка возможного случайного нажатия администратором кнопки
             {
                 // Открытие диалога сохранения файла
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -54,14 +59,13 @@ namespace IS_FISU
                 {
                     try
                     {
-                        // Путь к папке Pogulaeva
+                        // Путь к папке, откуда будут браться файлы для копирования
                         string sourceDirectory = @"C:\\Users\\delex\\source\\repos\\Pogulaeva\\-3";
 
 
                         // Создание zip-архива
                         ZipFile.CreateFromDirectory(sourceDirectory, saveFileDialog.FileName);
 
-                        // Создание резервной копии базы данных
                         //BackupDatabase();
 
                         MessageBox.Show("Резервное копирование завершено успешно.", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
