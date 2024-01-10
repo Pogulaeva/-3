@@ -28,6 +28,7 @@ namespace IS_FISU
             this.BackButton = new System.Windows.Forms.Button();
             this.AdditionalFuncMenu = new System.Windows.Forms.MenuStrip();
             this.MakeACopyMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.ActiveOrdersListButton = new System.Windows.Forms.Button();
             this.AdditionalFuncMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,7 +66,7 @@ namespace IS_FISU
             this.BackButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BackButton.Location = new System.Drawing.Point(376, 164);
+            this.BackButton.Location = new System.Drawing.Point(376, 228);
             this.BackButton.Name = "BackButton";
             this.BackButton.Size = new System.Drawing.Size(120, 61);
             this.BackButton.TabIndex = 2;
@@ -91,11 +92,26 @@ namespace IS_FISU
             this.MakeACopyMenu.Text = "Резервное копирование";
             this.MakeACopyMenu.Click += new System.EventHandler(this.MakeACopyMenu_Click);
             // 
+            // ActiveOrdersListButton
+            // 
+            this.ActiveOrdersListButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
+            this.ActiveOrdersListButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ActiveOrdersListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ActiveOrdersListButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ActiveOrdersListButton.Location = new System.Drawing.Point(11, 164);
+            this.ActiveOrdersListButton.Name = "ActiveOrdersListButton";
+            this.ActiveOrdersListButton.Size = new System.Drawing.Size(485, 58);
+            this.ActiveOrdersListButton.TabIndex = 4;
+            this.ActiveOrdersListButton.Text = "Список активных заказов";
+            this.ActiveOrdersListButton.UseVisualStyleBackColor = false;
+            this.ActiveOrdersListButton.Click += new System.EventHandler(this.ActiveOrdersListButton_Click);
+            // 
             // ChooseOrderListWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 237);
+            this.ClientSize = new System.Drawing.Size(508, 298);
+            this.Controls.Add(this.ActiveOrdersListButton);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.EditedOrdersButton);
             this.Controls.Add(this.UnapprovedOrdersButton);
@@ -120,5 +136,6 @@ namespace IS_FISU
         private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.MenuStrip AdditionalFuncMenu;
         private System.Windows.Forms.ToolStripMenuItem MakeACopyMenu;
+        private System.Windows.Forms.Button ActiveOrdersListButton;
     }
 }

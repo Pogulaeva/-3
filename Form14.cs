@@ -7,38 +7,75 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 using System.IO;
 using System.IO.Compression;
 using System.Diagnostics;
-using MySql.Data.MySqlClient;
 
 namespace IS_FISU
 {
-    public partial class ChooseOrderListWindow : Form
+    public partial class ActiveOrdersWindowAdm : Form
     {
-        public ChooseOrderListWindow()
+        DataBase dataBase = new DataBase();
+        string connectString = "server=localhost; port=3306; username=root; password=root; database=IS_FISU";
+        public ActiveOrdersWindowAdm()
         {
             InitializeComponent();
+            LoadData();
         }
-
-        private void UnapprovedOrdersButton_Click(object sender, EventArgs e)
+        private void LoadData()
         {
-            this.Hide();
-            var myForm = new OrderListWindow();
-            myForm.Show(); 
-        }
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectString))
+                {
+                    connection.Open();
 
-        private void EditedOrdersButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            var myForm = new EditedOrdersWindow();
-            myForm.Show();
+                    string query = @"
+                        SELECT 
+                            o.id, 
+                            p.name_product,
+                            o.amount_product, 
+                            o.order_price, 
+                            o.order_date
+                        FROM 
+                            Orders o
+                            INNER JOIN Products p ON o.id_product = p.id
+                        WHERE
+                             o.order_agreement = 1";
+
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    MySqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        // Загрузка данных в DataGridView
+                        while (reader.Read())
+                        {
+                            DataBaseActiveOrdersAdm.Rows.Add(
+                                reader["id"],
+                                reader["name_product"],
+                                reader["amount_product"],
+                                reader["order_price"],
+                                reader["order_date"]
+                            );
+                        }
+                    }
+
+                    reader.Close();
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void BackButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var myForm = new AdminWindow();
+            var myForm = new ClientOrdersWindow();
             myForm.Show();
         }
 
@@ -63,9 +100,6 @@ namespace IS_FISU
                         // Создание zip-архива
                         ZipFile.CreateFromDirectory(sourceDirectory, saveFileDialog.FileName);
 
-                        // Создание резервной копии базы данных
-                        //BackupDatabase();
-
                         MessageBox.Show("Резервное копирование завершено успешно.", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
@@ -76,12 +110,7 @@ namespace IS_FISU
 
             }
         }
-
-        private void ActiveOrdersListButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            var myForm = new ActiveOrdersWindowAdm();
-            myForm.Show();
-        }
     }
+
 }
+
